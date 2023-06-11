@@ -1,0 +1,4 @@
+.Menu {
+  @apply py-2 px-6 border-2 rounded-full text-lg border-system-navy dark:border-system-white;
+  @apply flex items-center justify-center gap-2;
+}
