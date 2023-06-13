@@ -1,0 +1,25 @@
+$system-navy: #1f2b37;
+$system-white: #f9f9f9;
+
+.Hero {
+  @media (prefers-color-scheme: dark) {
+    /* Dark theme styles go here */
+    background: linear-gradient(
+      180deg,
+      rgba($system-navy, 0.5) 30%,
+      rgba($system-navy, 0.8) 60%,
+      $system-navy
+    );
+  }
+
+  @media (prefers-color-scheme: light) {
+    /* Light theme styles go here */
+    background: linear-gradient(
+      180deg,
+      rgba($system-white, 0.5) 50%,
+      rgba($system-white, 0.8) 70%,
+
+      $system-white
+    );
+  }
+}

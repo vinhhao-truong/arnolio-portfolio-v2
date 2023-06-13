@@ -4,13 +4,13 @@ import React from "react";
 
 const PageContainer: React.FC<ReactProps> = ({ children, className }) => {
   return (
-    <main
+    <div
       className={`${getClasses(
         className
-      )} px-2 md:px-4 flex items-center justify-center my-20`}
+      )} px-2 md:px-4 flex items-center justify-center`}
     >
-      <div className="max-w-[1440px] w-full">{children}</div>
-    </main>
+      <div className="max-w-[1440px] w-full h-full">{children}</div>
+    </div>
   );
 };
 

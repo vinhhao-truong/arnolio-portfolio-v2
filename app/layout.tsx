@@ -1,10 +1,11 @@
 import "../styles/globals.scss";
-import { Inter } from "next/font/google";
+import { Inter, Raleway } from "next/font/google";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
 import PageContainer from "@/components/layout/PageContainer";
+import Provider from "@/redux/Provider";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Raleway({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Arnolio",
@@ -73,9 +74,11 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <Navigation />
-        <PageContainer>{children}</PageContainer>
-        <Footer />
+        <Provider>
+          <Navigation />
+          {children}
+          <Footer />
+        </Provider>
       </body>
     </html>
   );

@@ -6,6 +6,8 @@ import React, { useState } from "react";
 import styles from "./Menu.module.scss";
 import { motion } from "framer-motion";
 import useGetDarkLightMode from "@/hooks/useGetDarkLightMode";
+import { useDispatch } from "react-redux";
+import { openMenu } from "@/redux/navigationSlice";
 
 interface MenuIconProps extends ReactProps {
   isDarkMode: boolean;
@@ -47,15 +49,15 @@ const MenuIcon: React.FC<MenuIconProps> = ({
   );
 };
 
-interface MenuButtonProps extends ReactProps {
-  navList: Nav[];
-}
+interface MenuButtonProps extends ReactProps {}
 const MenuButton: React.FC<MenuButtonProps> = () => {
   const displayMode = useGetDarkLightMode();
   const isDarkMode = displayMode === "dark";
 
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const hoveredColor = isDarkMode ? "#77F2A1" : "#4F76F6";
+
+  const dispatch = useDispatch();
 
   return (
     <motion.button
@@ -67,6 +69,9 @@ const MenuButton: React.FC<MenuButtonProps> = () => {
         setIsHovered(false);
       }}
       className={`${styles.Menu}`}
+      onClick={() => {
+        dispatch(openMenu());
+      }}
     >
       Navigate
       <MenuIcon

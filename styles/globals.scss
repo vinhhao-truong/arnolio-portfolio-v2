@@ -1,8 +1,48 @@
 @tailwind base;
+
+html {
+  --scroll-behavior: smooth !important;
+  scroll-behavior: smooth !important;
+}
+
 @tailwind components;
 @tailwind utilities;
 
+$system-navy: #1f2b37;
+$system-white: #f9f9f9;
+
+html {
+  @media (prefers-color-scheme: dark) {
+    /* Dark theme styles go here */
+    ::-moz-selection {
+      /* Code for Firefox */
+      color: $system-navy;
+      background: $system-white;
+    }
+
+    ::selection {
+      color: $system-navy;
+      background: $system-white;
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    /* Light theme styles go here */
+    ::-moz-selection {
+      /* Code for Firefox */
+      color: $system-white;
+      background: $system-navy;
+    }
+
+    ::selection {
+      color: $system-white;
+      background: $system-navy;
+    }
+  }
+}
+
 body {
   @apply bg-system-white dark:bg-system-navy text-system-navy dark:text-system-white;
-  scroll-behavior: smooth;
+  --scroll-behavior: smooth !important;
+  scroll-behavior: smooth !important;
 }

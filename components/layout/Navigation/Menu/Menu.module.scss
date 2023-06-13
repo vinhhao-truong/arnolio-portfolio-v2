@@ -1,0 +1,32 @@
+$system-navy: #1f2b37;
+$system-white: #f9f9f9;
+
+.Menu {
+  @apply backdrop-blur-sm z-[100];
+  @media (prefers-color-scheme: light) {
+    /* Dark theme styles go here */
+    background: linear-gradient(
+      120deg,
+      rgba($system-white, 0.5) 20%,
+      $system-navy 30%
+    );
+  }
+
+  @media (prefers-color-scheme: dark) {
+    /* Light theme styles go here */
+    background: linear-gradient(
+      120deg,
+      rgba($system-navy, 0.5) 20%,
+      $system-white 30%
+    );
+  }
+}
+
+.CloseButton {
+  @apply w-max absolute p-2 border-2 rounded-full right-4 top-4 lg:right-6 lg:top-6
+    hover:border-transparent
+  text-system-white dark:text-system-navy
+    hover:text-system-navy hover:bg-system-white
+    hover:dark:text-system-white hover:dark:bg-system-navy
+  border-system-white dark:border-system-navy;
+}
