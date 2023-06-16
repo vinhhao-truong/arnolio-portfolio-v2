@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 
 .Clock {
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto Mono", monospace !important;
   @apply lg:text-xl hidden sm:block;
 }
