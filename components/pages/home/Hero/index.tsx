@@ -107,11 +107,7 @@ const Hero: React.FC<HeroProps> = () => {
               }}
               className="font-semibold sm:text-xl lg:text-3xl"
             >
-              My name is{" "}
-              <span className="text-system-blue dark:text-system-green">
-                Arnold Truong
-              </span>
-              ,
+              My name is <span className="text-gradient">Arnold Truong</span>,
             </motion.h2>
             <motion.h2
               initial={{ x: -120 }}

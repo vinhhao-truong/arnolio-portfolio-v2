@@ -4,8 +4,9 @@ import FloatInSection from "@/components/common/FloatInSection";
 import SectionHeader from "@/components/common/SectionHeader";
 import PageContainer from "@/components/layout/PageContainer";
 import React from "react";
-import Experience from "./Experience";
+import Experiences from "./Experiences";
 import Profile from "./Profile";
+import Technologies from "./Technologies";
 
 const About = () => {
   return (
@@ -13,7 +14,8 @@ const About = () => {
       <SectionHeader header="#about" />
       <div className="flex flex-col gap-24">
         <Profile />
-        <Experience />
+        <Technologies />
+        <Experiences />
       </div>
     </PageContainer>
   );

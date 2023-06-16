@@ -4,6 +4,7 @@ import FloatInSection from "@/components/common/FloatInSection";
 import ReactProps from "@/interfaces/ReactProps";
 import Image from "next/image";
 import React from "react";
+import styles from "./Profile.module.scss";
 
 const Profile: React.FC<ReactProps> = () => {
   return (
@@ -18,8 +19,10 @@ const Profile: React.FC<ReactProps> = () => {
         className="rounded-full shadow-lg shadow-system-navy dark:shadow-system-white max-w-[60vw]"
       />
       <section className="flex flex-col items-center leading-loose lg:w-1/2">
-        <h1 className="text-4xl font-bold text-center">Arnold Truong</h1>
-        <h2 className="mb-4 text-2xl text-center">Web developer</h2>
+        <h2 className={`text-gradient text-4xl font-bold text-center`}>
+          Arnold Truong
+        </h2>
+        <h3 className="mb-4 text-2xl text-center">Web developer</h3>
         <p className="leading-normal">
           Experienced software engineer with proven ability to learn, self-start
           and collaborate in rapidly changing environments. Equipped with a
