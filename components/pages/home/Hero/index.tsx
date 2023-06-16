@@ -46,9 +46,9 @@ const getTime = () => {
   const hr = parseInt(now.format("HH"));
   return hr >= 5 && hr < 12
     ? time[0]
-    : hr >= 12 && hr < 19
+    : hr >= 12 && hr < 17
     ? time[1]
-    : hr >= 19 && hr < 21
+    : hr >= 17 && hr < 21
     ? time[2]
     : time[3];
 };
@@ -109,8 +109,9 @@ const Hero: React.FC<HeroProps> = () => {
             >
               My name is{" "}
               <span className="text-system-blue dark:text-system-green">
-                Arnold Truong,
+                Arnold Truong
               </span>
+              ,
             </motion.h2>
             <motion.h2
               initial={{ x: -120 }}
@@ -123,7 +124,9 @@ const Hero: React.FC<HeroProps> = () => {
               }}
               className="ml-5 font-semibold 2xs:ml-16 xs:ml-24 sm:ml-32 sm:text-xl lg:text-3xl"
             >
-              I am a <u className="">full-stack web developer,</u>
+              I am a {"<"}
+              <u className="">full-stack web developer</u>
+              {" />"},
             </motion.h2>
             <motion.h2
               initial={{ x: -40 }}

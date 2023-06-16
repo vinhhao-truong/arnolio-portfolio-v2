@@ -18,7 +18,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      style={{
+        colorScheme: "dark !important",
+      }}
+    >
       <head>
         {/* light logo */}
         <link

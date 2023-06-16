@@ -9,6 +9,7 @@ import MenuButton from "./MenuButton";
 import { motion } from "framer-motion";
 import Logo from "@/components/common/Logo";
 import Menu from "./Menu";
+import Clock from "./Clock";
 
 const Navigation = () => {
   return (
@@ -19,6 +20,7 @@ const Navigation = () => {
           <Link href="/" scroll={false} className="w-[130px] md:w-[145px]">
             <Logo />
           </Link>
+          <Clock />
           <MenuButton />
         </div>
       </motion.header>

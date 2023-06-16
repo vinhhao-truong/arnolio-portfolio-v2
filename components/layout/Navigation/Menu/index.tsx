@@ -14,9 +14,9 @@ import LogoLight from "@/components/common/Logo/LogoLight";
 import Logo from "@/components/common/Logo";
 
 const homeNavList: Nav[] = [
-  { title: "About", url: "/#about", isStayed: true },
-  { title: "Projects", url: "/#projects", isStayed: true },
-  { title: "Contact", url: "/#contact", isStayed: true },
+  { title: "about me", url: "/#about", isStayed: true },
+  { title: "all my projects", url: "/#projects", isStayed: true },
+  { title: "get in touch", url: "/#contact", isStayed: true },
 ];
 
 interface MenuProps extends ReactProps {}
@@ -76,12 +76,30 @@ const Menu: React.FC<MenuProps> = () => {
         </Link>
       </div>
 
-      <nav className="flex flex-col items-end justify-center w-full h-full gap-6 pr-2 lg:pr-4 list-none max-w-[1440px]">
+      <nav className="flex flex-col items-end justify-center w-full h-full gap-8 pr-2 lg:pr-4 list-none max-w-[1440px]">
         {homeNavList.map(({ title, url, isStayed }, idx) => {
           return (
-            <li
+            <motion.li
+              initial={{
+                x: 30 * (idx + 1),
+              }}
+              whileInView={
+                isMenuOpen
+                  ? {
+                      x: 0,
+                      transition: {
+                        delay: 0.15,
+                        ease: "easeIn",
+                        duration: 0.3,
+                      },
+                    }
+                  : { x: 30 * (idx + 1) }
+              }
+              whileHover={{
+                scale: 1.1,
+              }}
               key={`menu-${idx}`}
-              className="text-system-white dark:text-system-navy"
+              className="text-2xl text-system-white dark:text-system-navy"
             >
               <Link
                 href={url}
@@ -92,7 +110,7 @@ const Menu: React.FC<MenuProps> = () => {
               >
                 {title}
               </Link>
-            </li>
+            </motion.li>
           );
         })}
       </nav>
