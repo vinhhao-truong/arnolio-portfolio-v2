@@ -21,7 +21,7 @@ const Technologies = () => {
       <h2 className="mb-4 text-3xl font-semibold text-center">
         My tech stack includes:
       </h2>
-      <ul className="flex flex-wrap items-center gap-12 dark:p-4 justify-evenly bg-system-white">
+      <ul className="flex flex-wrap items-center gap-12 p-4 justify-evenly bg-system-white">
         {techImages.map((url, idx) => {
           return (
             <li className="" key={`tech-${idx}`}>

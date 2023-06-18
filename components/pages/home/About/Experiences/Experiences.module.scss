@@ -1,0 +1,23 @@
+$system-navy: #1f2b37;
+$system-blue: #4f76f6;
+$system-green: #77f2a1;
+$system-white: #f9f9f9;
+$gray-400: #9ca3af;
+$gray-600: #4b5563;
+
+.DoneBarSwitch {
+  @media (prefers-color-scheme: dark) {
+    background: linear-gradient(
+      180deg,
+      $system-green 50%,
+      rgba($system-white, 70%) 50%
+    );
+  }
+  @media (prefers-color-scheme: light) {
+    background: linear-gradient(
+      180deg,
+      $system-blue 50%,
+      rgba($system-navy, 70%) 50%
+    );
+  }
+}
