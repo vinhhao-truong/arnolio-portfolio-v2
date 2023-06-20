@@ -16,7 +16,7 @@ const Profile: React.FC<ReactProps> = () => {
         height={280}
         width={280}
         alt={"profile-img"}
-        className="rounded-full shadow-lg shadow-system-navy dark:shadow-system-white max-w-[60vw]"
+        className="rounded-full shadow-lg shadow-system-navy dark:shadow-system-white max-w-[30vw] sm:max-w-[40vw]"
       />
       <section className="flex flex-col items-center leading-loose lg:w-1/2">
         <h2 className={`text-gradient text-4xl font-bold text-center`}>

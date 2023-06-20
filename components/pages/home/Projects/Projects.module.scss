@@ -1,0 +1,43 @@
+@import "@/styles/variables";
+
+.ProjectItem {
+  @apply max-w-full shadow-lg w-[360px] h-[250px] bg-system-white dark:bg-system-navy;
+
+  .ProjectName {
+    @apply text-center text-xl h-1/5 relative z-[1] flex justify-center items-center w-full
+    bg-system-navy dark:bg-system-white text-system-white dark:text-system-navy select-none
+    border-b-2 border-system-white dark:border-system-navy;
+  }
+  .ProjectInside {
+    @apply w-full h-4/5 z-[1] relative flex justify-center items-center;
+
+    @media (prefers-color-scheme: dark) {
+      background: linear-gradient(
+        180deg,
+        rgba($system-white, 0.8) 50%,
+        rgba($system-navy, 0.6)
+      );
+    }
+
+    @media (prefers-color-scheme: light) {
+      background: linear-gradient(
+        180deg,
+        rgba($system-navy, 0.8) 50%,
+        rgba($system-navy, 0.6)
+      );
+    }
+  }
+  .down {
+    @media (prefers-color-scheme: dark) {
+      @apply bg-gray-800;
+    }
+    @media (prefers-color-scheme: light) {
+      @apply bg-gray-300;
+    }
+  }
+}
+
+.Icon {
+  :hover {
+  }
+}

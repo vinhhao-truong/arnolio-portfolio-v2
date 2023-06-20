@@ -11,14 +11,16 @@ import {
   BsFillCalendarWeekFill as CalendarIcon,
 } from "react-icons/bs";
 import { IoCheckmarkDoneCircleOutline as DoneCircle } from "react-icons/io5";
-import { LuArrowUpCircle as UpIcon } from "react-icons/lu";
+import { LuArrowUpCircle as UpIconCircle } from "react-icons/lu";
 import {
   motion,
   useScroll,
   useMotionValueEvent,
   useTransform,
 } from "framer-motion";
-import FloatingSymbol from "./FloatingSymbol";
+import FloatingTriangle from "./FloatingTriangle";
+import { RiArrowUpSFill as UpIcon } from "react-icons/ri";
+import FloatingClock from "./FloatingClock";
 
 interface TimelineNodeProps extends ReactProps {
   isDone: boolean;
@@ -57,7 +59,7 @@ const TimelineNode: React.FC<TimelineNodeProps> = ({ isDone, from, to }) => {
             style={{ transform: "translate(-50%,-50%)" }}
           />
         ) : (
-          <UpIcon
+          <UpIconCircle
             className="absolute text-3xl text-system-white dark:text-system-navy top-1/2 left-1/2"
             style={{ transform: "translate(-50%,-50%)" }}
           />
@@ -70,23 +72,17 @@ const TimelineNode: React.FC<TimelineNodeProps> = ({ isDone, from, to }) => {
 
 const Experiences = () => {
   const expRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: expRef,
-    offset: ["start end", "end end"],
-  });
-  const scrollPercentage = useTransform(scrollYProgress, (value) => {
-    return `${value * 50}%`;
-  });
-  const scrollDeg = useTransform(scrollYProgress, [0, 1], [0, 360]);
+  // const { scrollYProgress } = useScroll({
+  // target: expRef,
+  // offset: ["start end", "end end"],
+  // });
+  // const scrollPercentage = useTransform(scrollYProgress, (value) => {
+  //   return `${value * 30}%`;
+  // });
+  // const scrollDeg = useTransform(scrollYProgress, [0, 1], [0, 360]);
 
   return (
     <div ref={expRef} className="relative">
-      <motion.div
-        style={{ top: scrollPercentage, rotate: scrollDeg }}
-        className="absolute z-[2] w-[200px]"
-      >
-        <FloatingSymbol />
-      </motion.div>
       <FloatInSection className="relative">
         <h2 className="mb-4 text-3xl font-semibold text-center">
           What have I done and still been doing?
@@ -112,6 +108,14 @@ const Experiences = () => {
                   key={`exp-${idx}`}
                 >
                   <div className="relative py-16 text-center">
+                    {idx === 0 && (
+                      <div
+                        className="absolute text-5xl bottom-[calc(100%-20px)] left-1/2"
+                        style={{ transform: "translateX(-50%)" }}
+                      >
+                        <UpIcon />
+                      </div>
+                    )}
                     <div
                       className={`${
                         isDone
@@ -132,7 +136,7 @@ const Experiences = () => {
                     </h4>
 
                     {desc && (
-                      <div className="bg-system-white dark:bg-system-white z-[1] relative p-4 border border-system-navy rounded-lg">
+                      <div className="bg-system-white dark:bg-system-navy z-[1] relative p-4 border ">
                         {desc}
                       </div>
                     )}

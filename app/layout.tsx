@@ -1,11 +1,11 @@
 import "../styles/globals.scss";
-import { Inter, Raleway } from "next/font/google";
+import { Inter, Encode_Sans } from "next/font/google";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
 import PageContainer from "@/components/layout/PageContainer";
 import Provider from "@/redux/Provider";
 
-const inter = Raleway({ subsets: ["latin"] });
+const inter = Encode_Sans({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Arnolio",

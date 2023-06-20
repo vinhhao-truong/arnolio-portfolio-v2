@@ -2,7 +2,7 @@
 
 import React from "react";
 
-const FloatingSymbol = () => {
+const FloatingTriangle = () => {
   return (
     <>
       <svg
@@ -36,4 +36,4 @@ const FloatingSymbol = () => {
   );
 };
 
-export default FloatingSymbol;
+export default FloatingTriangle;
