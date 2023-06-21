@@ -17,8 +17,8 @@ export default async function Home() {
         lightBg="https://images.pexels.com/photos/3653849/pexels-photo-3653849.jpeg?auto=compress&cs=tinysrgb&w=1920&h=2881&dpr=1"
       >
         <Hero />
-        <About />
       </BackgroundWrapper>
+      <About />
       <Projects projects={projectsRes.data} />
       <Contact />
     </div>

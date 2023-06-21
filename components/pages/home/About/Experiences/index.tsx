@@ -113,7 +113,7 @@ const Experiences = () => {
         {/* MAN AND ROCKET */}
 
         <motion.div
-          style={{ top: scrollPercentage, rotateY: 180 }}
+          style={{ top: scrollPercentage, rotateY: 180, left: "4rem" }}
           className="absolute xl:w-[200px] lg:w-[100px] hidden lg:block"
         >
           <Image
@@ -125,7 +125,7 @@ const Experiences = () => {
         </motion.div>
 
         <motion.div
-          style={{ bottom: scrollPercentage, right: 0 }}
+          style={{ bottom: scrollPercentage, right: "4rem" }}
           className="absolute xl:w-[200px] lg:w-[100px] hidden lg:block"
         >
           <Image
@@ -178,12 +178,18 @@ const Experiences = () => {
                       style={{ transform: "translateX(-50%)" }}
                     />
                     <TimelineNode isDone={isDone} from={from} to={to} />
-                    <div className="relative px-6 py-2 mb-2 rounded-full bg-system-white dark:bg-system-navy w-max">
+                    <div
+                      className={`${
+                        isDone
+                          ? `bg-system-navy dark:bg-system-white`
+                          : `bg-system-blue dark:bg-system-green`
+                      } text-system-white dark:text-system-navy relative px-6 py-2 mb-0.5 rounded-full w-max`}
+                    >
                       <h3 className="relative">{position}</h3>
                       <h4 className="relative text-sm">@ {organisation}</h4>
                     </div>
                     {desc && (
-                      <div className="bg-system-navy text-system-white z-[1] relative p-4 dark:border ">
+                      <div className="bg-system-white text-system-navy border border-system-navy rounded z-[1] relative p-4 dark:border ">
                         {desc}
                       </div>
                     )}
