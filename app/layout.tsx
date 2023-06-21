@@ -4,6 +4,7 @@ import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
 import PageContainer from "@/components/layout/PageContainer";
 import Provider from "@/redux/Provider";
+import GeneralLayout from "@/components/layout/GeneralLayout";
 
 const inter = Encode_Sans({ subsets: ["latin"] });
 
@@ -80,9 +81,11 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <Provider>
-          <Navigation />
-          {children}
-          <Footer />
+          <GeneralLayout>
+            <Navigation />
+            {children}
+            <Footer />
+          </GeneralLayout>
         </Provider>
       </body>
     </html>

@@ -33,7 +33,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
       id="projects"
     >
       <SectionHeader header="#projects" />
-      <FloatInSection className="flex justify-center w-full">
+      <FloatInSection className="flex justify-center w-full mb-4">
         <ul className="flex flex-wrap justify-center w-full gap-4 mt-2 mb-4">
           {projectsList.map((p, idx) => {
             const isHovered = idx === hoveredIdx;
@@ -72,7 +72,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                     <motion.div
                       initial={{ x: "-50%", y: "-50%" }}
                       animate={isHovered ? { scale: 0 } : { scale: 1 }}
-                      className="absolute text-2xl whitespace-nowrap top-1/2 left-1/2 text-system-white dark:text-system-navy"
+                      className="absolute text-2xl whitespace-nowrap top-1/2 left-1/2 text-system-white "
                     >
                       😔 the site is down 😔
                     </motion.div>
@@ -89,7 +89,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                           }
                         : { scale: 0 }
                     }
-                    className="flex justify-center gap-4 text-2xl text-system-white dark:text-system-navy"
+                    className="flex justify-center gap-4 text-2xl text-system-white"
                   >
                     {p.srcCodeUrl && (
                       <a

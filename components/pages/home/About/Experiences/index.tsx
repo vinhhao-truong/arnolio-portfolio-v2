@@ -21,6 +21,7 @@ import {
 import FloatingTriangle from "./FloatingTriangle";
 import { RiArrowUpSFill as UpIcon } from "react-icons/ri";
 import FloatingClock from "./FloatingClock";
+import Image from "next/image";
 
 interface TimelineNodeProps extends ReactProps {
   isDone: boolean;
@@ -72,18 +73,40 @@ const TimelineNode: React.FC<TimelineNodeProps> = ({ isDone, from, to }) => {
 
 const Experiences = () => {
   const expRef = useRef(null);
-  // const { scrollYProgress } = useScroll({
-  // target: expRef,
-  // offset: ["start end", "end end"],
-  // });
-  // const scrollPercentage = useTransform(scrollYProgress, (value) => {
-  //   return `${value * 30}%`;
-  // });
-  // const scrollDeg = useTransform(scrollYProgress, [0, 1], [0, 360]);
+  const { scrollYProgress } = useScroll({
+    target: expRef,
+    offset: ["start end", "end end"],
+  });
+  const scrollPercentage = useTransform(scrollYProgress, (value) => {
+    return `${value * 70}%`;
+  });
+  const scrollDeg = useTransform(scrollYProgress, [0, 1], [0, 360]);
 
   return (
     <div ref={expRef} className="relative">
       <FloatInSection className="relative">
+        <motion.div
+          style={{ top: scrollPercentage, rotateY: 180 }}
+          className="absolute xl:w-[200px] lg:w-[100px] hidden lg:block"
+        >
+          <Image
+            src="https://hamam.dev/static/media/coding-gif.013e1a558630d6ee2878.gif"
+            alt="move"
+            width={200}
+            height={100}
+          />
+        </motion.div>
+        <motion.div
+          style={{ bottom: scrollPercentage, right: 0 }}
+          className="absolute xl:w-[200px] lg:w-[100px] hidden lg:block"
+        >
+          <Image
+            src="https://media0.giphy.com/media/uxHMYYw16sPd1x9CcL/giphy.gif?cid=6c09b952l57ryfd644wxpo7i8i2szfcg0x1oi2lu0h8tm379&ep=v1_stickers_related&rid=giphy.gif&ct=s"
+            alt="move"
+            width={200}
+            height={100}
+          />
+        </motion.div>
         <h2 className="mb-4 text-3xl font-semibold text-center">
           What have I done and still been doing?
         </h2>

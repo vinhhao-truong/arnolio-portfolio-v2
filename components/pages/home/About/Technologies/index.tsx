@@ -31,7 +31,7 @@ const Technologies = () => {
               <Image
                 src={url}
                 alt={`tech-img-${idx}`}
-                className="object-fill h-full"
+                className="object-fill h-auto"
                 width={128}
                 height={64}
               />
