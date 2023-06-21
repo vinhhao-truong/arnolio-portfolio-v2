@@ -8,20 +8,20 @@ import Experiences from "./Experiences";
 import Profile from "./Profile";
 import Technologies from "./Technologies";
 import { motion } from "framer-motion";
+import styles from "./About.module.scss";
 
 const About = () => {
   return (
-    <PageContainer
-      className="relative bg-system-white dark:bg-system-navy"
-      id="about"
-    >
-      <SectionHeader header="#about" />
-      <div className="flex flex-col gap-24">
+    <div className="relative bg-system-white dark:bg-system-navy" id="about">
+      <PageContainer className="mb-24">
+        <SectionHeader header="#about" />
         <Profile />
+      </PageContainer>
+      <div className={`${styles.TechAndExp} flex flex-col gap-24`}>
         <Technologies />
         <Experiences />
       </div>
-    </PageContainer>
+    </div>
   );
 };
 

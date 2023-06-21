@@ -1,8 +1,10 @@
 "use client";
 
 import FloatInSection from "@/components/common/FloatInSection";
+import PageContainer from "@/components/layout/PageContainer";
 import Image from "next/image";
 import React, { useState } from "react";
+import styles from "./Technologies.module.scss";
 
 const techImages: string[] = [
   "https://www.freepnglogos.com/uploads/html5-logo-png/html5-logo-devextreme-multi-purpose-controls-html-javascript-3.png",
@@ -20,26 +22,28 @@ const techImages: string[] = [
 
 const Technologies = () => {
   return (
-    <FloatInSection>
-      <h2 className="mb-4 text-3xl font-semibold text-center">
-        My tech stack includes:
-      </h2>
-      <ul className="flex flex-wrap items-center justify-center gap-12 p-4 bg-system-white">
-        {techImages.map((url, idx) => {
-          return (
-            <li className="" key={`tech-${idx}`}>
-              <Image
-                src={url}
-                alt={`tech-img-${idx}`}
-                className="object-fill h-auto"
-                width={128}
-                height={64}
-              />
-            </li>
-          );
-        })}
-      </ul>
-    </FloatInSection>
+    <PageContainer>
+      <FloatInSection className={``}>
+        <h2 className="mb-4 text-3xl font-semibold text-center">
+          My tech stack includes:
+        </h2>
+        <ul className="flex flex-wrap items-center justify-center gap-12 p-4 dark:bg-system-white">
+          {techImages.map((url, idx) => {
+            return (
+              <li className="" key={`tech-${idx}`}>
+                <Image
+                  src={url}
+                  alt={`tech-img-${idx}`}
+                  className="object-fill h-auto"
+                  width={128}
+                  height={64}
+                />
+              </li>
+            );
+          })}
+        </ul>
+      </FloatInSection>
+    </PageContainer>
   );
 };
 

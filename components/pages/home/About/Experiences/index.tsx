@@ -22,6 +22,8 @@ import FloatingTriangle from "./FloatingTriangle";
 import { RiArrowUpSFill as UpIcon } from "react-icons/ri";
 import FloatingClock from "./FloatingClock";
 import Image from "next/image";
+import getRandomNum from "@/libs/utils/get/getRandomNum";
+import NoSSR from "@/components/common/NoSSR";
 
 interface TimelineNodeProps extends ReactProps {
   isDone: boolean;
@@ -39,7 +41,7 @@ const TimelineNode: React.FC<TimelineNodeProps> = ({ isDone, from, to }) => {
   };
 
   return (
-    <div className="flex justify-center gap-8">
+    <div className="flex justify-center gap-8 mb-1">
       <Date date={from} />
       <div
         className={`${
@@ -85,6 +87,31 @@ const Experiences = () => {
   return (
     <div ref={expRef} className="relative">
       <FloatInSection className="relative">
+        {/* CLOUDS */}
+        <NoSSR>
+          {Array(6)
+            .fill("")
+            .map((_, idx) => {
+              return (
+                <Image
+                  key={`cloud-${idx}`}
+                  src="https://www.seekpng.com/png/full/482-4823332_cloud-white-cloud-vector-png.png"
+                  alt="cloud"
+                  width={300}
+                  height={300}
+                  className="absolute dark:hidden"
+                  style={{
+                    top: `${getRandomNum(0, 90)}%`,
+                    left: `${getRandomNum(0, 90)}%`,
+                    opacity: `${getRandomNum(30, 50)}%`,
+                  }}
+                />
+              );
+            })}
+        </NoSSR>
+
+        {/* MAN AND ROCKET */}
+
         <motion.div
           style={{ top: scrollPercentage, rotateY: 180 }}
           className="absolute xl:w-[200px] lg:w-[100px] hidden lg:block"
@@ -96,6 +123,7 @@ const Experiences = () => {
             height={100}
           />
         </motion.div>
+
         <motion.div
           style={{ bottom: scrollPercentage, right: 0 }}
           className="absolute xl:w-[200px] lg:w-[100px] hidden lg:block"
@@ -130,7 +158,7 @@ const Experiences = () => {
                   } xl:w-3/5 w-full lg:w-4/5 mx-auto`}
                   key={`exp-${idx}`}
                 >
-                  <div className="relative py-16 text-center">
+                  <div className="relative flex flex-col items-center py-16 text-center">
                     {idx === 0 && (
                       <div
                         className="absolute text-5xl bottom-[calc(100%-20px)] left-1/2"
@@ -150,16 +178,12 @@ const Experiences = () => {
                       style={{ transform: "translateX(-50%)" }}
                     />
                     <TimelineNode isDone={isDone} from={from} to={to} />
-
-                    <h3 className="bg-system-white dark:bg-system-navy z-[1] relative pt-2">
-                      {position}
-                    </h3>
-                    <h4 className="bg-system-white dark:bg-system-navy z-[1] relative text-sm pb-2">
-                      @ {organisation}
-                    </h4>
-
+                    <div className="relative px-6 py-2 mb-2 rounded-full bg-system-white dark:bg-system-navy w-max">
+                      <h3 className="relative">{position}</h3>
+                      <h4 className="relative text-sm">@ {organisation}</h4>
+                    </div>
                     {desc && (
-                      <div className="bg-system-white dark:bg-system-navy z-[1] relative p-4 border ">
+                      <div className="bg-system-navy text-system-white z-[1] relative p-4 dark:border ">
                         {desc}
                       </div>
                     )}
