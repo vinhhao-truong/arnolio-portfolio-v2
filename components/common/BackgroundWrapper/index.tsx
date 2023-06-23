@@ -31,7 +31,7 @@ const BackgroundWrapper: React.FC<BgWrapperProps> = ({
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
       }}
-      className={` bg-no-repeat bg-cover`}
+      className={` bg-no-repeat bg-cover relative`}
       onLoad={() => {
         dispatch(loaded("isBgLoaded"));
       }}

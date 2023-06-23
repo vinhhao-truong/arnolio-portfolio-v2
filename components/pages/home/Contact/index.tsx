@@ -7,11 +7,9 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <PageContainer
-      className="bg-system-white dark:bg-system-navy"
-      id="contacts"
-    >
+    <PageContainer className="" id="contacts">
       <SectionHeader header="#contacts" />
+      <div className=""></div>
     </PageContainer>
   );
 };

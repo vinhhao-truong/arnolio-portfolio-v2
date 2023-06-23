@@ -86,7 +86,7 @@ const Experiences = () => {
 
   return (
     <div ref={expRef} className="relative">
-      <FloatInSection className="relative">
+      <FloatInSection className="relative overflow-x-hidden overflow-y-auto">
         {/* CLOUDS */}
         <NoSSR>
           {Array(6)
@@ -97,8 +97,8 @@ const Experiences = () => {
                   key={`cloud-${idx}`}
                   src="https://www.seekpng.com/png/full/482-4823332_cloud-white-cloud-vector-png.png"
                   alt="cloud"
-                  width={300}
-                  height={300}
+                  width={400}
+                  height={400}
                   className="absolute dark:hidden"
                   style={{
                     top: `${getRandomNum(0, 90)}%`,
@@ -113,8 +113,11 @@ const Experiences = () => {
         {/* MAN AND ROCKET */}
 
         <motion.div
-          style={{ top: scrollPercentage, rotateY: 180, left: "4rem" }}
-          className="absolute xl:w-[200px] lg:w-[100px] hidden lg:block"
+          style={{
+            top: scrollPercentage,
+            rotateY: 180,
+          }}
+          className="absolute left-0 lg:left-16 xl:w-[200px] w-[100px] z-[1]"
         >
           <Image
             src="https://hamam.dev/static/media/coding-gif.013e1a558630d6ee2878.gif"
@@ -125,8 +128,8 @@ const Experiences = () => {
         </motion.div>
 
         <motion.div
-          style={{ bottom: scrollPercentage, right: "4rem" }}
-          className="absolute xl:w-[200px] lg:w-[100px] hidden lg:block"
+          style={{ bottom: scrollPercentage }}
+          className="absolute right-0 lg:right-16 xl:w-[200px] w-[100px] z-[1]"
         >
           <Image
             src="https://media0.giphy.com/media/uxHMYYw16sPd1x9CcL/giphy.gif?cid=6c09b952l57ryfd644wxpo7i8i2szfcg0x1oi2lu0h8tm379&ep=v1_stickers_related&rid=giphy.gif&ct=s"
@@ -145,58 +148,81 @@ const Experiences = () => {
               organisation: "Self",
             })
             .reverse()
-            .map(({ from, to, position, organisation, desc }, idx) => {
-              const isDone = !!to;
-              const switchPos = 0;
+            .map(
+              (
+                { from, to, position, organisation, desc, orgLogo, orgUrl },
+                idx
+              ) => {
+                const isDone = !!to;
+                const switchPos = 0;
 
-              return (
-                <li
-                  className={`${
-                    isDone
-                      ? "text-gray-600 dark:text-gray-400"
-                      : "text-system-blue dark:text-system-green"
-                  } xl:w-3/5 w-full lg:w-4/5 mx-auto`}
-                  key={`exp-${idx}`}
-                >
-                  <div className="relative flex flex-col items-center py-16 text-center">
-                    {idx === 0 && (
+                return (
+                  <li
+                    className={`${
+                      isDone
+                        ? "text-gray-600 dark:text-gray-400"
+                        : "text-system-blue dark:text-system-green"
+                    } xl:w-3/5 w-full lg:w-4/5 mx-auto`}
+                    key={`exp-${idx}`}
+                  >
+                    <div className="relative flex flex-col items-center py-16 text-center">
+                      {idx === 0 && (
+                        <div
+                          className="absolute text-5xl bottom-[calc(100%-20px)] left-1/2"
+                          style={{ transform: "translateX(-50%)" }}
+                        >
+                          <UpIcon />
+                        </div>
+                      )}
                       <div
-                        className="absolute text-5xl bottom-[calc(100%-20px)] left-1/2"
+                        className={`${
+                          isDone
+                            ? "bg-system-navy/70 dark:bg-system-white/70"
+                            : idx === switchPos
+                            ? `${styles.DoneBarSwitch}`
+                            : "bg-system-blue dark:bg-system-green"
+                        } absolute top-0 w-[4px] h-full left-1/2 `}
                         style={{ transform: "translateX(-50%)" }}
+                      />
+                      <TimelineNode isDone={isDone} from={from} to={to} />
+                      <div
+                        className={`${
+                          isDone
+                            ? `bg-system-navy dark:bg-system-white`
+                            : `bg-system-blue dark:bg-system-green`
+                        } text-system-white dark:text-system-navy relative px-6 py-2 mb-0.5 rounded-full w-max`}
                       >
-                        <UpIcon />
+                        <h3 className="relative">{position}</h3>
+                        {!desc && (
+                          <h4 className="relative text-sm">@ {organisation}</h4>
+                        )}
                       </div>
-                    )}
-                    <div
-                      className={`${
-                        isDone
-                          ? "bg-system-navy/70 dark:bg-system-white/70"
-                          : idx === switchPos
-                          ? `${styles.DoneBarSwitch}`
-                          : "bg-system-blue dark:bg-system-green"
-                      } absolute top-0 w-[4px] h-full left-1/2 `}
-                      style={{ transform: "translateX(-50%)" }}
-                    />
-                    <TimelineNode isDone={isDone} from={from} to={to} />
-                    <div
-                      className={`${
-                        isDone
-                          ? `bg-system-navy dark:bg-system-white`
-                          : `bg-system-blue dark:bg-system-green`
-                      } text-system-white dark:text-system-navy relative px-6 py-2 mb-0.5 rounded-full w-max`}
-                    >
-                      <h3 className="relative">{position}</h3>
-                      <h4 className="relative text-sm">@ {organisation}</h4>
+                      {desc && (
+                        <div className="bg-system-white text-system-navy border border-system-navy rounded z-[1] dark:border relative lg:max-w-[60%] max-w-[95%] sm:max-w-[80%]">
+                          <a
+                            href={orgUrl}
+                            target="_blank"
+                            className="flex items-center justify-center gap-2 px-4 py-2 bg-system-navy text-system-white"
+                          >
+                            {orgLogo && orgUrl && (
+                              <Image
+                                src={orgLogo}
+                                alt="logo"
+                                width={32}
+                                height={32}
+                                className=""
+                              />
+                            )}
+                            <p>@ {organisation}</p>
+                          </a>
+                          {desc}
+                        </div>
+                      )}
                     </div>
-                    {desc && (
-                      <div className="bg-system-white text-system-navy border border-system-navy rounded z-[1] relative p-4 dark:border ">
-                        {desc}
-                      </div>
-                    )}
-                  </div>
-                </li>
-              );
-            })}
+                  </li>
+                );
+              }
+            )}
         </ul>
       </FloatInSection>
     </div>

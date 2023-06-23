@@ -28,96 +28,98 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   const MotionImage = motion(Image);
 
   return (
-    <PageContainer
-      className="bg-system-white dark:bg-system-navy"
-      id="projects"
-    >
-      <SectionHeader header="#projects" />
-      <FloatInSection className="flex justify-center w-full mb-4">
-        <ul className="flex flex-wrap justify-center w-full gap-4 mt-2 mb-4">
-          {projectsList.map((p, idx) => {
-            const isHovered = idx === hoveredIdx;
-            const isDown = p.status === "Down";
-            const isEvenIdx = idx % 2 === 0;
+    <>
+      <PageContainer className="relative z-[1]" id="projects">
+        <SectionHeader header="#projects" />
+        <FloatInSection className="flex justify-center w-full mb-4">
+          <ul className="flex flex-wrap justify-center w-full gap-4 mt-2 mb-4">
+            {projectsList.map((p, idx) => {
+              const isHovered = idx === hoveredIdx;
+              const isDown = p.status === "Down";
 
-            return (
-              <motion.li
-                whileHover={{
-                  borderRadius: 12,
-                  scale: 1.02,
-                }}
-                className={`${styles.ProjectItem} relative overflow-hidden`}
-                key={`projects-${idx}`}
-                onMouseEnter={() => setHoveredIdx(idx)}
-                onMouseLeave={() => setHoveredIdx(null)}
-              >
-                <MotionImage
-                  className="absolute object-cover w-full h-4/5 bottom-0 z-[0]"
-                  animate={isHovered ? { scale: 1.2 } : {}}
-                  src={
-                    p.thumbnail ||
-                    "https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                  }
-                  alt={`${p.name}`}
-                  width={420}
-                  height={250}
-                />
-                <h2 className={`${styles.ProjectName}`}>{p.name}</h2>
-                <div
-                  className={`${styles.ProjectInside} ${
-                    isDown ? `${styles.down}` : ""
-                  }`}
+              return (
+                <motion.li
+                  whileHover={{
+                    borderRadius: 0,
+                    // scale: 1.02,
+                  }}
+                  className={`${styles.ProjectItem} relative overflow-hidden rounded-lg`}
+                  key={`projects-${idx}`}
+                  onMouseEnter={() => setHoveredIdx(idx)}
+                  onMouseLeave={() => setHoveredIdx(null)}
                 >
-                  {isDown && (
-                    <motion.div
-                      initial={{ x: "-50%", y: "-50%" }}
-                      animate={isHovered ? { scale: 0 } : { scale: 1 }}
-                      className="absolute text-2xl whitespace-nowrap top-1/2 left-1/2 text-system-white "
-                    >
-                      😔 the site is down 😔
-                    </motion.div>
-                  )}
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    animate={
-                      isHovered
-                        ? {
-                            scale: 1,
-                            transition: {
-                              delay: 0.3,
-                            },
-                          }
-                        : { scale: 0 }
+                  <MotionImage
+                    className="absolute object-cover w-full h-4/5 bottom-0 z-[0]"
+                    animate={isHovered ? { scale: 1.2 } : {}}
+                    src={
+                      p.thumbnail ||
+                      "https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                     }
-                    className="flex justify-center gap-4 text-2xl text-system-white"
+                    alt={`${p.name}`}
+                    width={420}
+                    height={250}
+                  />
+                  <h2 className={`${styles.ProjectName}`}>{p.name}</h2>
+                  <div
+                    className={`${styles.ProjectInside} ${
+                      isDown ? `${styles.down}` : ""
+                    }`}
                   >
-                    {p.srcCodeUrl && (
-                      <a
-                        href={getUrl(p.srcCodeUrl)}
-                        target="_blank"
-                        className=""
+                    {isDown && (
+                      <motion.div
+                        initial={{ x: "-50%", y: "-50%" }}
+                        animate={isHovered ? { scale: 0 } : { scale: 1 }}
+                        className="absolute text-2xl whitespace-nowrap top-1/2 left-1/2 text-system-white "
                       >
-                        <GithubIcon className={`${styles.Icon}`} />
-                      </a>
+                        😔 the site is down 😔
+                      </motion.div>
                     )}
-                    {p.demoUrl && (
-                      <a href={getUrl(p.demoUrl)} target="_blank" className="">
-                        <ShareIcon className={`${styles.Icon}`} />
-                      </a>
-                    )}
-                  </motion.div>
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={
+                        isHovered
+                          ? {
+                              scale: 1,
+                              transition: {
+                                delay: 0.3,
+                              },
+                            }
+                          : { scale: 0 }
+                      }
+                      className="flex justify-center gap-4 text-2xl text-system-white"
+                    >
+                      {p.srcCodeUrl && (
+                        <a
+                          href={getUrl(p.srcCodeUrl)}
+                          target="_blank"
+                          className=""
+                        >
+                          <GithubIcon className={`${styles.Icon}`} />
+                        </a>
+                      )}
+                      {p.demoUrl && (
+                        <a
+                          href={getUrl(p.demoUrl)}
+                          target="_blank"
+                          className=""
+                        >
+                          <ShareIcon className={`${styles.Icon}`} />
+                        </a>
+                      )}
+                    </motion.div>
 
-                  {/* LAST UPDATE */}
-                  <p className="absolute bottom-0 w-full pr-2 text-sm text-right bg-system-white text-system-navy">
-                    Last updated: {moment(p?.lastUpdate).format("DD MMM YY")}
-                  </p>
-                </div>
-              </motion.li>
-            );
-          })}
-        </ul>
-      </FloatInSection>
-    </PageContainer>
+                    {/* LAST UPDATE */}
+                    <p className="absolute bottom-0 w-full pr-2 text-sm text-right bg-system-white text-system-navy">
+                      Last updated: {moment(p?.lastUpdate).format("DD MMM YY")}
+                    </p>
+                  </div>
+                </motion.li>
+              );
+            })}
+          </ul>
+        </FloatInSection>
+      </PageContainer>
+    </>
   );
 };
 

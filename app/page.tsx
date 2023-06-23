@@ -20,6 +20,10 @@ export default async function Home() {
       </BackgroundWrapper>
       <About />
       <Projects projects={projectsRes.data} />
+      <BackgroundWrapper
+        lightBg="https://images.pexels.com/photos/14130837/pexels-photo-14130837.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1"
+        darkBg="https://images.pexels.com/photos/14130837/pexels-photo-14130837.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1"
+      ></BackgroundWrapper>
       <Contact />
     </div>
   );
