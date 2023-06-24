@@ -42,7 +42,15 @@ const experiences: Exp[] = [
     orgLogo:
       "https://media.licdn.com/dms/image/C560BAQHRFBSHjmcgxg/company-logo_200_200/0/1584167853396?e=2147483647&v=beta&t=-r8cQuG6mX6Toy0piZkLow9jN2fJP4esMfkGaopQ9v8",
     orgUrl: "https://commsdeclare.org/",
-    desc: <ExpDesc orgDesc="A fin-tech startup" />,
+    desc: (
+      <ExpDesc
+        orgDesc="A constructive, fact-based and non-partisan volunteer group harnesses the power of communications, marketing, media and advertising to supercharge the transition to a climate-friendly future."
+        tasks={[
+          "Provided feedbacks to the existing website in terms of design, content and architecture.",
+          "Collaborated with peers to reconstruct some WordPress components.",
+        ]}
+      />
+    ),
   },
   {
     from: moment("2022-05"),
@@ -52,7 +60,15 @@ const experiences: Exp[] = [
     orgLogo:
       "https://media.cdn.gradconnection.com/uploads/f56781a3-2c6a-4628-9465-415de6c31dc6-JDS_Logo.png",
     orgUrl: "https://www.jds.net.au/",
-    desc: <ExpDesc orgDesc="A fin-tech startup" />,
+    desc: (
+      <ExpDesc
+        orgDesc="An IT-solution company provides specialist services in a set of technologies and capabilities. JDS focuses on IT Monitoring (Observability), Security, Service Management, Quality Assurance and Automation"
+        tasks={[
+          "Sketched, programmed and pitched an automatic SMTP solution for the company and third-party partners.",
+          "Collaborated with other developers and engineers.",
+        ]}
+      />
+    ),
   },
   {
     from: moment("2022-09"),
