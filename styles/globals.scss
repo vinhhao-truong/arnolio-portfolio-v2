@@ -46,6 +46,7 @@ body {
 }
 
 .text-gradient {
+  user-select: none;
   @media (prefers-color-scheme: dark) {
     background: linear-gradient(90deg, #4f76f6 0%, #77f2a1 100%);
     -webkit-background-clip: text;

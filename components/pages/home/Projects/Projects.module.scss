@@ -9,7 +9,7 @@
 }
 
 .ProjectItem {
-  @apply max-w-full border-none outline-none shadow-lg w-[360px] h-[250px] bg-system-white dark:bg-system-navy;
+  @apply max-w-full border-none outline-none shadow-lg w-full h-[280px] sm:w-[360px] bg-system-white dark:bg-system-navy;
 
   .ProjectName {
     @apply text-center text-xl h-1/5 relative z-[1] flex justify-center items-center w-full

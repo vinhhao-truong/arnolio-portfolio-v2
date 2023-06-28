@@ -66,7 +66,7 @@ const Menu: React.FC<MenuProps> = () => {
       >
         <MdOutlineClose className="text-2xl " />
       </motion.button>
-      <div className="w-[1440px] py-1.5 px-2 lg:px-4 min-[1444px]:px-0 block mx-auto">
+      {/* <div className="w-[1440px] py-1.5 px-2 lg:px-4 min-[1444px]:px-0 block mx-auto">
         <Link
           className="flex w-[130px] md:w-[145px]"
           href="/"
@@ -74,7 +74,7 @@ const Menu: React.FC<MenuProps> = () => {
         >
           <Logo className="w-[130px] md:w-[145px]" />
         </Link>
-      </div>
+      </div> */}
 
       <nav className="flex flex-col items-end justify-center w-full h-full gap-8 pr-2 lg:pr-4 list-none max-w-[1440px]">
         {homeNavList.map(({ title, url, isStayed }, idx) => {

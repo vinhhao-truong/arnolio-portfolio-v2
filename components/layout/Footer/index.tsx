@@ -50,9 +50,9 @@ const Footer = () => {
     <footer className={`${styles.Background} relative`}>
       <div className={`${styles.Mask} absolute w-full h-full`} />
       <PageContainer className={`relative z-[1]`} id="contacts">
-        <div className="my-20 w-[500px] max-w-full border-r-[20px] border-r-system-navy dark:shadow-system-white dark:border-r-system-white p-4 rounded shadow-lg ">
-          <Logo className="w-[300px]" />
-          <ul className="grid grid-cols-2 gap-x-8 gap-y-4">
+        <div className="my-20 w-[500px] max-w-full border-r-[20px] bg-system-white dark:bg-system-navy border-r-system-navy dark:shadow-system-white/40 dark:border-r-system-white p-2 xs:p-4 rounded shadow-lg ">
+          <Logo className="w-[300px] max-w-[80%]" />
+          <ul className="grid grid-cols-2 text-[8px] 2xs:text-[10px] text-sm gap-x-8 gap-y-4 xs:text-base">
             {contactList.map((contact, idx) => {
               return (
                 <li className="" key={`contact-url-${idx}`}>

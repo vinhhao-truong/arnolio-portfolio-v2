@@ -93,7 +93,7 @@ const Contact = () => {
   return (
     <PageContainer className={`${styles.Background} mt-16`} id="contact">
       <FloatInSection className="my-10">
-        <h2 className="my-8 text-4xl font-semibold leading-relaxed text-center text-gradient">
+        <h2 className="my-8 text-xl font-semibold leading-relaxed text-center sm:text-2xl lg:text-4xl text-gradient">
           Interested? Leave a message here and I will respond ASAP.
         </h2>
         <div className="flex flex-none justify-evenly">
@@ -102,9 +102,12 @@ const Contact = () => {
             alt="contact-gif"
             height={300}
             width={300}
-            className="object-contain h-max"
+            className="object-contain h-max hidden sm:block sm:w-[200px] lg:w-[300px]"
           />
-          <form onSubmit={sendMsg} className="flex flex-col w-1/2 gap-3">
+          <form
+            onSubmit={sendMsg}
+            className="flex flex-col w-full gap-3 sm:w-2/3 lg:w-1/2"
+          >
             {/* @ts-ignore */}
             {Object.keys(inputs).map((inputKey: keyof InputsInterface, idx) => {
               return (

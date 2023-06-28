@@ -117,7 +117,7 @@ const Experiences = () => {
             top: scrollPercentage,
             rotateY: 180,
           }}
-          className="absolute left-0 lg:left-16 xl:w-[200px] w-[100px] z-[1]"
+          className="absolute left-0 lg:left-16 xl:w-[200px] w-[100px] z-[1] hidden sm:block"
         >
           <Image
             src="https://hamam.dev/static/media/coding-gif.013e1a558630d6ee2878.gif"
@@ -129,7 +129,7 @@ const Experiences = () => {
 
         <motion.div
           style={{ bottom: scrollPercentage }}
-          className="absolute right-0 lg:right-16 xl:w-[200px] w-[100px] z-[1]"
+          className="absolute right-0 lg:right-16 xl:w-[200px] w-[100px] z-[1] hidden sm:block"
         >
           <Image
             src="https://media0.giphy.com/media/uxHMYYw16sPd1x9CcL/giphy.gif?cid=6c09b952l57ryfd644wxpo7i8i2szfcg0x1oi2lu0h8tm379&ep=v1_stickers_related&rid=giphy.gif&ct=s"
