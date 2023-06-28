@@ -198,7 +198,7 @@ const Experiences = () => {
                         )}
                       </div>
                       {desc && (
-                        <div className="bg-system-white text-system-navy border border-system-navy rounded z-[1] dark:border relative lg:max-w-[60%] max-w-[95%] sm:max-w-[80%]">
+                        <div className="bg-system-white text-system-navy dark:border-2 border dark:border-system-white rounded z-[1] relative lg:max-w-[60%] max-w-[95%] sm:max-w-[80%]">
                           <a
                             href={orgUrl}
                             target="_blank"

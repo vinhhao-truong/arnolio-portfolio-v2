@@ -1,0 +1,11 @@
+.Background {
+  // background-image: url(https://images.pexels.com/photos/1262304/pexels-photo-1262304.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.Input {
+  @apply p-2 bg-system-white dark:bg-system-navy border-2 rounded-md outline-none
+        placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:placeholder:text-transparent placeholder:italic
+          selection:bg-system-blue dark:selection:bg-system-green;
+}
