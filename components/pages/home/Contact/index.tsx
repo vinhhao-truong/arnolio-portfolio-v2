@@ -13,6 +13,7 @@ import Response from "@/interfaces/ResponseData";
 import { getClasses } from "@/libs/utils/get/getProps";
 import { HiPaperAirplane as PlaneIcon } from "react-icons/hi";
 import { motion } from "framer-motion";
+import { MdDone as SuccessIcon, MdClose as ErrorIcon } from "react-icons/md";
 
 interface InputsInterface {
   email: string;
@@ -54,10 +55,20 @@ const Contact = () => {
   const [inputs, setInputs] = useState<InputsInterface>(initialInputs);
   const [status, setStatus] = useState<
     "waiting" | "sending" | "success" | "error"
-  >();
+  >("waiting");
 
   const emailCheck = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
   const isEmailValid = emailCheck.test(inputs.email);
+
+  useEffect(() => {
+    if (status === "success" || status === "error") {
+      const backToWaiting = setTimeout(() => {
+        setStatus("waiting");
+      }, 3000);
+
+      return () => clearTimeout(backToWaiting);
+    }
+  }, [status]);
 
   const onInputChange =
     (
@@ -82,10 +93,12 @@ const Contact = () => {
         const resData: Response = await response.data.data;
 
         setStatus("success");
+        setInputs({ ...initialInputs });
         // console.log(messageInput);
       } catch (err) {
         console.log(err);
         setStatus("error");
+        setInputs((prev) => ({ ...prev, email: "" }));
       }
     }
   };
@@ -148,23 +161,56 @@ const Contact = () => {
               );
             })}
             <motion.button
-              whileTap={{ scale: 0.95 }}
-              initial={{
-                backgroundImage:
-                  "linear-gradient(90deg, #4f76f6 0%, #77f2a1 100%)",
-              }}
-              whileHover={{
-                backgroundImage:
-                  "linear-gradient(115deg, #4f76f6 0%, #77f2a1 100%)",
-              }}
-              className="block mx-auto rounded-full w-max"
+              whileTap={status === "waiting" ? { scale: 0.95 } : {}}
+              disabled={
+                status === "sending" ||
+                status === "success" ||
+                status === "error"
+              }
+              animate={
+                status === "waiting"
+                  ? {
+                      backgroundImage:
+                        "linear-gradient(90deg, #4f76f6 0%, #77f2a1 100%)",
+                    }
+                  : status === "success"
+                  ? { backgroundColor: "#10b981", backgroundImage: "unset" }
+                  : status === "error"
+                  ? { backgroundColor: "#dc2626", backgroundImage: "unset" }
+                  : { backgroundColor: "#d4d4d4", backgroundImage: "unset" }
+              }
+              whileHover={
+                status === "waiting"
+                  ? {
+                      backgroundImage:
+                        "linear-gradient(115deg, #4f76f6 0%, #77f2a1 100%)",
+                    }
+                  : {}
+              }
+              className="block mx-auto rounded-full"
             >
               <motion.div
-                initial={{ x: 2 }}
-                whileHover={{ x: [1, 4] }}
-                className="p-2.5"
+                whileHover={status === "waiting" ? { x: [-1, 2] } : {}}
+                className="p-2.5 w-10 h-10 flex items-center justify-center"
               >
-                <PlaneIcon className="text-xl rotate-90 text-system-white" />
+                {status === "waiting" && (
+                  <PlaneIcon
+                    className="text-xl text-system-white"
+                    style={{ transform: "translateX(1px) rotate(90deg)" }}
+                  />
+                )}
+                {status === "sending" && (
+                  <Image
+                    src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif"
+                    alt="contact-loading-img"
+                    width={48}
+                    height={48}
+                  />
+                )}
+                <motion.div className="text-2xl text-system-white">
+                  {status === "success" && <SuccessIcon />}
+                  {status === "error" && <ErrorIcon />}
+                </motion.div>
               </motion.div>
             </motion.button>
           </form>
