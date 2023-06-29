@@ -134,8 +134,8 @@ const Contact = () => {
                       : inputKey === "email" &&
                         isEmailValid &&
                         inputs.email.length > 0
-                      ? "focus-within:text-emerald-500 dark:focus-within:text-emerald-400 text-emerald-500 dark:text-emerald-400"
-                      : "focus-within:text-system-blue dark:focus-within:text-system-white"
+                      ? "focus-within:text-emerald-600 dark:focus-within:text-emerald-500 text-emerald-600 dark:text-emerald-500"
+                      : "focus-within:text-system-navy dark:focus-within:text-system-white"
                   } flex flex-col`}
                 >
                   <Input
@@ -147,8 +147,8 @@ const Contact = () => {
                         : inputKey === "email" &&
                           isEmailValid &&
                           inputs.email.length > 0
-                        ? "border-emerald-500 dark:border-emerald-400 focus:border-emerald-500 dark:focus:border-emerald-400"
-                        : "focus:border-system-blue dark:focus:border-system-white dark:border-gray-200 border-gray-400"
+                        ? "border-emerald-600 dark:border-emerald-500 focus:border-emerald-600 dark:focus:border-emerald-500"
+                        : "focus:border-system-navy dark:focus:border-system-white dark:border-gray-200 border-gray-400"
                     } ${styles.Input}`}
                     value={inputs[inputKey]}
                     onChange={onInputChange(inputKey)}

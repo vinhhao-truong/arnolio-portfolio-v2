@@ -8,6 +8,7 @@ import React from "react";
 import ReactProps from "@/interfaces/ReactProps";
 import Logo from "@/components/common/Logo";
 import styles from "./Footer.module.scss";
+import moment from "moment";
 
 interface ContactUrlProps extends ReactProps {
   href: string;
@@ -49,6 +50,7 @@ const Footer = () => {
   return (
     <footer className={`${styles.Background} relative`}>
       <div className={`${styles.Mask} absolute w-full h-full`} />
+      <div className="w-full h-[2px] bg-system-navy dark:bg-system-white absolute top-1/2 z-[1]" />
       <PageContainer className={`relative z-[1]`} id="contacts">
         <div className="my-20 w-[500px] max-w-full border-r-[20px] bg-system-white dark:bg-system-navy border-r-system-navy dark:shadow-system-white/40 dark:border-r-system-white p-2 xs:p-4 rounded shadow-lg ">
           <Logo className="w-[300px] max-w-[80%]" />
@@ -63,6 +65,9 @@ const Footer = () => {
           </ul>
         </div>
       </PageContainer>
+      <p className="px-2 text-sm italic text-right">
+        © Arnolio {moment().format("YYYY")}
+      </p>
     </footer>
   );
 };
