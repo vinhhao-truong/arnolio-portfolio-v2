@@ -12,6 +12,8 @@ import React, { useState } from "react";
 import styles from "./Projects.module.scss";
 import { FaGithub as GithubIcon, FaShare as ShareIcon } from "react-icons/fa";
 import getUrl from "@/libs/utils/get/getUrl";
+import { TiWarning as WarningIcon } from "react-icons/ti";
+import { Tooltip } from "react-tooltip";
 
 interface ProjectsProps extends ReactProps {
   projects: any;
@@ -26,6 +28,8 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
 
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const MotionImage = motion(Image);
+
+  console.log(projectsList);
 
   return (
     <>
@@ -48,68 +52,87 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                   onMouseEnter={() => setHoveredIdx(idx)}
                   onMouseLeave={() => setHoveredIdx(null)}
                 >
-                  <MotionImage
-                    className="absolute object-cover w-full h-4/5 bottom-0 z-[0]"
-                    animate={isHovered ? { scale: 1.2 } : {}}
-                    src={
-                      p.thumbnail ||
-                      "https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                    }
-                    alt={`${p.name}`}
-                    width={420}
-                    height={250}
-                  />
-                  <h2 className={`${styles.ProjectName}`}>{p.name}</h2>
-                  <div
-                    className={`${styles.ProjectInside} ${
-                      isDown ? `${styles.down}` : ""
-                    }`}
-                  >
+                  {/* HEAD */}
+                  <div className={`${styles.ProjectHead}`}>
+                    <h2 className={`font-semibold text-gradient-reverse`}>
+                      {p.name}
+                    </h2>
                     {isDown && (
-                      <motion.div
-                        initial={{ x: "-50%", y: "-50%" }}
-                        animate={isHovered ? { scale: 0 } : { scale: 1 }}
-                        className="absolute text-2xl whitespace-nowrap top-1/2 left-1/2 text-system-white "
-                      >
-                        😔 the site is down 😔
-                      </motion.div>
+                      <>
+                        <WarningIcon className="text-yellow-400 outline-none" />
+                      </>
                     )}
+                  </div>
+                  <div className={`${styles.ProjectBody}`}>
+                    {/* MASK */}
                     <motion.div
-                      initial={{ scale: 0 }}
                       animate={
                         isHovered
-                          ? {
-                              scale: 1,
-                              transition: {
-                                delay: 0.3,
-                              },
-                            }
-                          : { scale: 0 }
+                          ? { backgroundColor: "rgba(0, 0, 0, 0.8)" }
+                          : {}
                       }
-                      className="flex justify-center gap-4 text-2xl text-system-white"
+                      className="absolute w-full h-[65%] z-[1] flex items-center justify-center p-4"
                     >
+                      <motion.p
+                        animate={
+                          isHovered
+                            ? {
+                                scale: 1,
+                                opacity: 1,
+                                transition: {
+                                  delay: 0.3,
+                                  duration: 0.3,
+                                  ease: "easeIn",
+                                },
+                              }
+                            : { scale: 0, opacity: 0 }
+                        }
+                        className="text-lg text-center text-system-white"
+                      >
+                        {p.description}
+                      </motion.p>
+                    </motion.div>
+                    <MotionImage
+                      className="relative object-cover w-full h-full"
+                      initial={{ scale: 1.25 }}
+                      animate={isHovered ? { scale: 1.1 } : { scale: 1.25 }}
+                      src={
+                        p.thumbnail ||
+                        "https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                      }
+                      alt={`${p.name}`}
+                      width={420}
+                      height={250}
+                    />
+                  </div>
+
+                  {/* FOOT */}
+                  <div className={`${styles.ProjectFooter}`}>
+                    <ul className="flex items-center gap-2 text-xl">
                       {p.srcCodeUrl && (
-                        <a
-                          href={getUrl(p.srcCodeUrl)}
-                          target="_blank"
-                          className=""
-                        >
-                          <GithubIcon className={`${styles.Icon}`} />
-                        </a>
+                        <li>
+                          <a
+                            href={getUrl(p.srcCodeUrl)}
+                            target="_blank"
+                            className=""
+                          >
+                            <GithubIcon className={`${styles.Icon}`} />
+                          </a>
+                        </li>
                       )}
                       {p.demoUrl && (
-                        <a
-                          href={getUrl(p.demoUrl)}
-                          target="_blank"
-                          className=""
-                        >
-                          <ShareIcon className={`${styles.Icon}`} />
-                        </a>
+                        <li>
+                          <a
+                            href={getUrl(p.demoUrl)}
+                            target="_blank"
+                            className=""
+                          >
+                            <ShareIcon className={`${styles.Icon}`} />
+                          </a>
+                        </li>
                       )}
-                    </motion.div>
-
-                    {/* LAST UPDATE */}
-                    <p className="absolute bottom-0 w-full pr-2 text-sm text-right bg-system-white text-system-navy">
+                    </ul>
+                    <p>
                       Last updated: {moment(p?.lastUpdate).format("DD MMM YY")}
                     </p>
                   </div>

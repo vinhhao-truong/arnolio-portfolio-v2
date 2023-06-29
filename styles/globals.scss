@@ -63,3 +63,22 @@ body {
     text-fill-color: transparent;
   }
 }
+
+.text-gradient-reverse {
+  user-select: none;
+  @media (prefers-color-scheme: light) {
+    background: linear-gradient(90deg, #4f76f6 0%, #77f2a1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background: linear-gradient(90deg, #3a58ba 0%, #4d9d68 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+}

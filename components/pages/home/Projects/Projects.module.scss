@@ -11,37 +11,18 @@
 .ProjectItem {
   @apply max-w-full border-none outline-none shadow-lg w-full h-[280px] sm:w-[360px] bg-system-white dark:bg-system-navy;
 
-  .ProjectName {
-    @apply text-center text-xl h-1/5 relative z-[1] flex justify-center items-center w-full
-    bg-system-navy dark:bg-system-white text-system-white dark:text-system-navy select-none
+  .ProjectHead {
+    @apply text-xl h-[20%] relative z-[1] flex justify-center gap-1 items-center w-full
+    bg-system-navy dark:bg-system-white select-none
     border-b-2 border-system-white dark:border-system-navy;
   }
-  .ProjectInside {
-    @apply w-full h-4/5 z-[1] relative flex justify-center items-center;
 
-    // @media (prefers-color-scheme: dark) {
-    //   background: linear-gradient(
-    //     180deg,
-    //     rgba($system-white, 0.8) 50%,
-    //     rgba($system-navy, 0.6)
-    //   );
-    // }
-
-    // @media (prefers-color-scheme: light) {
-    background: linear-gradient(
-      180deg,
-      rgba($system-navy, 0.8) 50%,
-      rgba($system-navy, 0.6)
-    );
-    // }
+  .ProjectBody {
+    @apply h-[65%] overflow-hidden;
   }
-  .down {
-    // @media (prefers-color-scheme: dark) {
-    // @apply bg-gray-800;
-    // }
-    // @media (prefers-color-scheme: light) {
-    @apply bg-gray-300;
-    // }
+
+  .ProjectFooter {
+    @apply flex items-center justify-between w-full p-2 text-sm h-[15%] bg-system-white text-system-navy;
   }
 }
 

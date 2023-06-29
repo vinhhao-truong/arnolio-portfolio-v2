@@ -93,7 +93,7 @@ const Contact = () => {
   return (
     <PageContainer className={`${styles.Background} mt-16`} id="contact">
       <FloatInSection className="my-10">
-        <h2 className="my-8 text-xl font-semibold leading-relaxed text-center sm:text-2xl lg:text-4xl text-gradient">
+        <h2 className="my-8 text-xl font-semibold leading-loose text-center sm:text-2xl lg:text-4xl text-gradient">
           Interested? Leave a message here and I will respond ASAP.
         </h2>
         <div className="flex flex-none justify-evenly">
