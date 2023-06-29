@@ -68,8 +68,14 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                     <motion.div
                       animate={
                         isHovered
-                          ? { backgroundColor: "rgba(0, 0, 0, 0.8)" }
-                          : {}
+                          ? {
+                              backgroundColor: "rgba(0, 0, 0, 0.8)",
+                              backdropFilter: "blur(5px)",
+                            }
+                          : {
+                              backdropFilter: "blur(0px)",
+                              backgroundColor: "transparent",
+                            }
                       }
                       className="absolute w-full h-[65%] z-[1] flex items-center justify-center p-4"
                     >
@@ -79,13 +85,13 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                             ? {
                                 scale: 1,
                                 opacity: 1,
+                                filter: "blur(0px)",
                                 transition: {
-                                  delay: 0.3,
-                                  duration: 0.3,
+                                  duration: 0.4,
                                   ease: "easeIn",
                                 },
                               }
-                            : { scale: 0, opacity: 0 }
+                            : { scale: 0, opacity: 0, filter: "blur(2px)" }
                         }
                         className="text-lg text-center text-system-white"
                       >

@@ -114,7 +114,6 @@ const Menu: React.FC<MenuProps> = () => {
           );
         })}
       </nav>
-      {/* CONTENT */}
     </motion.div>
   );
 };
