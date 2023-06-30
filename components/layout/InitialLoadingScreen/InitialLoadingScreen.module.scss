@@ -1,0 +1,8 @@
+.Background {
+  @media (prefers-color-scheme: light) {
+    @apply bg-system-white text-system-navy;
+  }
+  @media (prefers-color-scheme: dark) {
+    @apply bg-system-navy text-system-white;
+  }
+}

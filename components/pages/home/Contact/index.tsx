@@ -81,7 +81,6 @@ const Contact = () => {
 
   const sendMsg: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    // dispatch(startLoading());
     if (inputs.email && inputs.msg && isEmailValid) {
       setStatus("sending");
       try {

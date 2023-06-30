@@ -10,8 +10,12 @@ import { motion } from "framer-motion";
 import Logo from "@/components/common/Logo";
 import Menu from "./Menu";
 import Clock from "./Clock";
+import { useDispatch, useSelector } from "react-redux";
+import { setMode } from "@/redux/globalSlice";
 
 const Navigation = () => {
+  const dispatch = useDispatch();
+
   return (
     <>
       <motion.header className="fixed top-0 z-50 flex items-center justify-center w-full shadow-md bg-system-white/50 dark:bg-system-navy/50 backdrop-blur-md">
@@ -20,7 +24,23 @@ const Navigation = () => {
           <Link href="/" scroll={false} className="w-[130px] md:w-[145px]">
             <Logo />
           </Link>
-          <Clock />
+          <div className="">
+            <Clock />
+            <button
+              onClick={() => {
+                if (document.documentElement.classList.contains("dark")) {
+                  dispatch(setMode("light"));
+                  document.documentElement.classList.remove("dark");
+                } else {
+                  dispatch(setMode("dark"));
+                  document.documentElement.classList.add("dark");
+                }
+              }}
+            >
+              toggle
+            </button>
+          </div>
+
           <MenuButton />
         </div>
       </motion.header>

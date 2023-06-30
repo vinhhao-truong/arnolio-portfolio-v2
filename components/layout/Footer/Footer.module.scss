@@ -1,29 +1,4 @@
 @import "@/styles/variables";
 
-.Background {
-  background-repeat: no-repeat;
-  background-size: cover;
-  @media (prefers-color-scheme: light) {
-    background-image: url(https://images.pexels.com/photos/1435849/pexels-photo-1435849.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1);
-  }
-  @media (prefers-color-scheme: dark) {
-    background-image: url(https://images.pexels.com/photos/721993/pexels-photo-721993.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1);
-  }
-}
-
 .Mask {
-  @media (prefers-color-scheme: light) {
-    background-image: linear-gradient(
-      165deg,
-      $system-white 55%,
-      rgba(#000000, 0)
-    );
-  }
-  @media (prefers-color-scheme: dark) {
-    background-image: linear-gradient(
-      165deg,
-      $system-navy 55%,
-      rgba(#000000, 0)
-    );
-  }
 }

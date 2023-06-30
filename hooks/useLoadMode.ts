@@ -1,9 +1,13 @@
 "use client";
 
+import { selectGlobal } from "@/redux/globalSlice";
 import React, { useEffect, useLayoutEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setMode } from "@/redux/globalSlice";
 
-const useGetDarkLightMode = () => {
-  const [mode, setMode] = useState<"dark" | "light">();
+const useLoadMode = () => {
+  const mode = useSelector(selectGlobal).mode;
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const isDarkMode = window.matchMedia(
@@ -14,10 +18,10 @@ const useGetDarkLightMode = () => {
       localStorage.theme === "dark" ||
       (!("theme" in localStorage) && isDarkMode)
     ) {
-      setMode("dark");
+      dispatch(setMode("dark"));
       document.documentElement.classList.add("dark");
     } else {
-      setMode("light");
+      dispatch(setMode("light"));
       document.documentElement.classList.remove("dark");
     }
   }, []);
@@ -32,12 +36,9 @@ const useGetDarkLightMode = () => {
         } else {
           document.documentElement.classList.remove("dark");
         }
-
-        setMode(colorScheme);
+        dispatch(setMode(colorScheme));
       });
   }, []);
-
-  return mode;
 };
 
-export default useGetDarkLightMode;
+export default useLoadMode;

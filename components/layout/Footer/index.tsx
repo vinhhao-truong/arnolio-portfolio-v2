@@ -9,6 +9,9 @@ import ReactProps from "@/interfaces/ReactProps";
 import Logo from "@/components/common/Logo";
 import styles from "./Footer.module.scss";
 import moment from "moment";
+import { useSelector } from "react-redux";
+import { selectGlobal } from "@/redux/globalSlice";
+import systemColor from "@/assets/system/systemColor";
 
 interface ContactUrlProps extends ReactProps {
   href: string;
@@ -47,9 +50,21 @@ const contactList: ContactUrlProps[] = [
 ];
 
 const Footer = () => {
+  const mode = useSelector(selectGlobal).mode;
+
   return (
-    <footer className={`${styles.Background} relative`}>
-      <div className={`${styles.Mask} absolute w-full h-full`} />
+    <footer
+      className={`${styles.Background} bg-cover bg-no-repeat bg-[url(https://images.pexels.com/photos/1435849/pexels-photo-1435849.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1)] dark:bg-[url(https://images.pexels.com/photos/721993/pexels-photo-721993.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1)] relative`}
+    >
+      <div
+        style={{
+          backgroundImage:
+            mode === "light"
+              ? `linear-gradient(165deg, ${systemColor["system-white"]} 55%, transparent)`
+              : `linear-gradient(165deg, ${systemColor["system-navy"]} 55%, transparent)`,
+        }}
+        className={`absolute w-full h-full`}
+      />
       <div className="w-full h-[2px] bg-system-navy dark:bg-system-white absolute top-1/2 z-[1]" />
       <PageContainer className={`relative z-[1]`} id="contacts">
         <div className="my-20 w-[500px] max-w-full border-r-[20px] bg-system-white dark:bg-system-navy border-r-system-navy dark:shadow-system-white/40 dark:border-r-system-white p-2 xs:p-4 rounded shadow-lg ">

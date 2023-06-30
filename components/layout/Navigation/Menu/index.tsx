@@ -55,7 +55,7 @@ const Menu: React.FC<MenuProps> = () => {
           : { display: "none", opacity: 0 }
       }
       transition={{ duration: 0.3, ease: "easeIn" }}
-      className={`${styles.Menu} fixed z-50 w-screen h-screen bg-system-navy`}
+      className={` bg-gradient-120 from-system-white/50 from-[20%] to-system-navy to-[30%] dark:from-system-navy/50 dark:to-system-white fixed z-50 w-screen h-screen`}
     >
       {/* CLOSE BUTTON */}
       <motion.button
@@ -69,16 +69,6 @@ const Menu: React.FC<MenuProps> = () => {
       >
         <MdOutlineClose className="text-2xl " />
       </motion.button>
-      {/* <div className="w-[1440px] py-1.5 px-2 lg:px-4 min-[1444px]:px-0 block mx-auto">
-        <Link
-          className="flex w-[130px] md:w-[145px]"
-          href="/"
-          onClick={() => dispatch(closeMenu())}
-        >
-          <Logo className="w-[130px] md:w-[145px]" />
-        </Link>
-      </div> */}
-
       <nav className="flex flex-col items-end justify-center w-full h-full gap-8 pr-2 lg:pr-4 list-none max-w-[1440px]">
         {homeNavList.map(({ title, url, isStayed }, idx) => {
           return (

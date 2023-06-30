@@ -5,9 +5,9 @@ import ReactProps from "@/interfaces/ReactProps";
 import React, { useState } from "react";
 import styles from "./Menu.module.scss";
 import { motion } from "framer-motion";
-import useGetDarkLightMode from "@/hooks/useGetDarkLightMode";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { openMenu } from "@/redux/navigationSlice";
+import { selectGlobal } from "@/redux/globalSlice";
 
 interface MenuIconProps extends ReactProps {
   isDarkMode: boolean;
@@ -66,7 +66,7 @@ const MenuIcon: React.FC<MenuIconProps> = ({
 
 interface MenuButtonProps extends ReactProps {}
 const MenuButton: React.FC<MenuButtonProps> = () => {
-  const displayMode = useGetDarkLightMode();
+  const displayMode = useSelector(selectGlobal).mode;
   const isDarkMode = displayMode === "dark";
 
   const [isHovered, setIsHovered] = useState<boolean>(false);
@@ -94,7 +94,7 @@ const MenuButton: React.FC<MenuButtonProps> = () => {
       onHoverEnd={() => {
         setIsHovered(false);
       }}
-      className={`${styles.Menu}`}
+      className={`${styles.MenuButton}`}
       onClick={() => {
         dispatch(openMenu());
       }}

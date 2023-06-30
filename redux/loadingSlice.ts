@@ -6,19 +6,18 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface Loading {
   isLoading: boolean;
   isBgLoaded: boolean;
+  isModeLoaded: boolean;
 }
 const initialState: Loading = {
-  isLoading: false,
+  isLoading: true,
   isBgLoaded: false,
+  isModeLoaded: false,
 };
 
 const loadingSlice = createSlice({
   name: "loading",
   initialState: { ...initialState },
   reducers: {
-    startLoading: (state) => {
-      state.isLoading = true;
-    },
     stopLoading: (state) => {
       document.querySelector("body")?.classList?.remove("overflow-hidden");
       state.isLoading = false;
@@ -31,4 +30,4 @@ const loadingSlice = createSlice({
 
 export default loadingSlice;
 export const selectLoading = (state: RootState) => state.loading;
-export const { startLoading, loaded, stopLoading } = loadingSlice.actions;
+export const { loaded, stopLoading } = loadingSlice.actions;
