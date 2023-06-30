@@ -179,7 +179,7 @@ const Experiences = () => {
                           isDone
                             ? "bg-system-navy/70 dark:bg-system-white/70"
                             : idx === switchPos
-                            ? `${styles.DoneBarSwitch}`
+                            ? `bg-gradient-to-b from-[50%] from-system-blue to-[50%] to-system-navy/70 dark:from-system-green dark:to-system-white/70`
                             : "bg-system-blue dark:bg-system-green"
                         } absolute top-0 w-[4px] h-full left-1/2 `}
                         style={{ transform: "translateX(-50%)" }}

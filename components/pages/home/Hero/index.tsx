@@ -84,7 +84,9 @@ const ExploreMore = () => {
 interface HeroProps extends ReactProps {}
 const Hero: React.FC<HeroProps> = () => {
   return (
-    <div className={`${styles.Hero} relative h-screen`}>
+    <div
+      className={`bg-gradient-to-b from-[50%] from-system-white/50 via-[70%] via-system-white/80 to-system-white dark:from-[30%] dark:from-system-navy/50 dark:via-[60%] dark:via-system-navy/80 dark:to-system-navy relative h-screen`}
+    >
       <PageContainer className="items-center h-full text-system-navy dark:text-system-white">
         <div className="flex flex-col items-center h-full justify-evenly">
           <div className="">
