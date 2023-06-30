@@ -24,7 +24,6 @@ const loadingSlice = createSlice({
       state.isLoading = false;
     },
     loaded: (state, action: PayloadAction<keyof Loading>) => {
-      console.log(`loaded ${action.payload}`);
       state[action.payload] = true;
     },
   },

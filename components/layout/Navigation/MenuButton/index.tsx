@@ -23,27 +23,42 @@ const MenuIcon: React.FC<MenuIconProps> = ({
   return (
     <svg width="14" height="13" viewBox="0 0 14 13" fill="none">
       <motion.rect
-        animate={isHovered ? { fill: hoveredColor, x: -2 } : {}}
+        animate={
+          isHovered
+            ? { fill: hoveredColor, x: -2 }
+            : isDarkMode
+            ? { fill: "#F9F9F9" }
+            : { fill: "#1F2B37" }
+        }
         width="14"
         height="3"
         rx="1.5"
-        fill={isDarkMode ? "#F9F9F9" : "#1F2B37"}
       />
       <motion.rect
-        animate={isHovered ? { fill: hoveredColor, x: -4 } : {}}
+        animate={
+          isHovered
+            ? { fill: hoveredColor, x: -2 }
+            : isDarkMode
+            ? { fill: "#F9F9F9" }
+            : { fill: "#1F2B37" }
+        }
         y="5"
         width="14"
         height="3"
         rx="1.5"
-        fill={isDarkMode ? "#F9F9F9" : "#1F2B37"}
       />
       <motion.rect
-        animate={isHovered ? { fill: hoveredColor, x: -6 } : {}}
+        animate={
+          isHovered
+            ? { fill: hoveredColor, x: -2 }
+            : isDarkMode
+            ? { fill: "#F9F9F9" }
+            : { fill: "#1F2B37" }
+        }
         y="10"
         width="14"
         height="3"
         rx="1.5"
-        fill={isDarkMode ? "#F9F9F9" : "#1F2B37"}
       />
     </svg>
   );
@@ -62,6 +77,17 @@ const MenuButton: React.FC<MenuButtonProps> = () => {
   return (
     <motion.button
       whileHover={{ borderColor: hoveredColor, color: hoveredColor }}
+      animate={
+        isDarkMode
+          ? {
+              borderColor: "#F9F9F9",
+              color: "#F9F9F9",
+            }
+          : {
+              borderColor: "#1F2B37",
+              color: "#1F2B37",
+            }
+      }
       onHoverStart={() => {
         setIsHovered(true);
       }}

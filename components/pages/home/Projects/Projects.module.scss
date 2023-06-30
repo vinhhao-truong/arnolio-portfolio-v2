@@ -9,13 +9,7 @@
 }
 
 .ProjectItem {
-  @apply max-w-full border-none outline-none shadow-lg w-full h-[280px] sm:w-[360px] bg-system-white dark:bg-system-navy;
-
-  .ProjectHead {
-    @apply text-xl h-[20%] relative z-[1] flex justify-center gap-1 items-center w-full
-    bg-system-navy dark:bg-system-white select-none
-    border-b-2 border-system-white dark:border-system-navy;
-  }
+  @apply max-w-full border-none outline-none shadow-lg w-full h-[280px] sm:w-[360px];
 
   .ProjectBody {
     @apply h-[65%] overflow-hidden;

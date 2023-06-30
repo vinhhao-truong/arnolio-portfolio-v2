@@ -29,8 +29,6 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const MotionImage = motion(Image);
 
-  console.log(projectsList);
-
   return (
     <>
       <PageContainer className="relative z-[1]" id="projects">
@@ -47,13 +45,17 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                     borderRadius: 0,
                     // scale: 1.02,
                   }}
-                  className={`${styles.ProjectItem} relative overflow-hidden rounded-lg`}
+                  className={`${styles.ProjectItem} relative overflow-hidden rounded-lg bg-system-white dark:bg-system-navy`}
                   key={`projects-${idx}`}
                   onMouseEnter={() => setHoveredIdx(idx)}
                   onMouseLeave={() => setHoveredIdx(null)}
                 >
                   {/* HEAD */}
-                  <div className={`${styles.ProjectHead}`}>
+                  <div
+                    className={`text-xl h-[20%] relative z-[1] flex justify-center gap-1 items-center w-full
+    bg-system-navy dark:bg-system-white select-none
+    border-b-2 border-system-white dark:border-system-navy`}
+                  >
                     <h2 className={`font-semibold text-gradient-reverse`}>
                       {p.name}
                     </h2>
@@ -66,17 +68,28 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                   <div className={`${styles.ProjectBody}`}>
                     {/* MASK */}
                     <motion.div
-                      animate={
+                      style={
                         isHovered
                           ? {
-                              backgroundColor: "rgba(0, 0, 0, 0.8)",
+                              background: "rgba(0, 0, 0, 0.4)",
                               backdropFilter: "blur(5px)",
                             }
                           : {
                               backdropFilter: "blur(0px)",
-                              backgroundColor: "transparent",
+                              background: "transparent",
                             }
                       }
+                      // animate={
+                      //   isHovered
+                      //     ? {
+                      //         background: "rgba(0, 0, 0, 0.4)",
+                      //         backdropFilter: "blur(5px)",
+                      //       }
+                      //     : {
+                      //         backdropFilter: "blur(0px)",
+                      //         background: "transparent",
+                      //       }
+                      // }
                       className="absolute w-full h-[65%] z-[1] flex items-center justify-center p-4"
                     >
                       <motion.p

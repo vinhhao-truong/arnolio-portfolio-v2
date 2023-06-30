@@ -26,12 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      style={{
-        colorScheme: "dark !important",
-      }}
-    >
+    <html lang="en">
       <head>
         {/* light logo */}
         <link
@@ -86,7 +81,9 @@ export default function RootLayout({
           media="(prefers-color-scheme: dark)"
         />
       </head>
-      <body className={inter.className}>
+      <body
+        className={`${inter.className} bg-system-white dark:bg-system-navy text-system-navy dark:text-system-white`}
+      >
         <Provider>
           <GeneralLayout>
             <Navigation />

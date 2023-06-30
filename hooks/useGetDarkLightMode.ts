@@ -5,12 +5,21 @@ import React, { useEffect, useLayoutEffect, useState } from "react";
 const useGetDarkLightMode = () => {
   const [mode, setMode] = useState<"dark" | "light">();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const isDarkMode = window.matchMedia(
       "(prefers-color-scheme: dark)"
     ).matches;
 
-    setMode(isDarkMode ? "dark" : "light");
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) && isDarkMode)
+    ) {
+      setMode("dark");
+      document.documentElement.classList.add("dark");
+    } else {
+      setMode("light");
+      document.documentElement.classList.remove("dark");
+    }
   }, []);
 
   useEffect(() => {
@@ -18,6 +27,12 @@ const useGetDarkLightMode = () => {
       .matchMedia("(prefers-color-scheme: dark)")
       .addEventListener("change", (event) => {
         const colorScheme = event.matches ? "dark" : "light";
+        if (colorScheme === "dark") {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+
         setMode(colorScheme);
       });
   }, []);

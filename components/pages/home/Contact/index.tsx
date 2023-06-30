@@ -149,7 +149,9 @@ const Contact = () => {
                           inputs.email.length > 0
                         ? "border-emerald-600 dark:border-emerald-500 focus:border-emerald-600 dark:focus:border-emerald-500"
                         : "focus:border-system-navy dark:focus:border-system-white dark:border-gray-200 border-gray-400"
-                    } ${styles.Input}`}
+                    } p-2 bg-system-white dark:bg-system-navy border-2 rounded-md outline-none
+                    placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:placeholder:text-transparent placeholder:italic
+                      selection:bg-system-blue dark:selection:bg-system-green`}
                     value={inputs[inputKey]}
                     onChange={onInputChange(inputKey)}
                     name={inputKey}

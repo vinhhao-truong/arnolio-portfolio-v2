@@ -24,9 +24,5 @@ $system-white: #f9f9f9;
 
 .CloseButton {
   @apply w-max absolute p-2 border-2 rounded-full right-4 top-4 lg:right-6 lg:top-6
-    hover:border-transparent
-  text-system-white dark:text-system-navy
-    hover:text-system-navy hover:bg-system-white
-    hover:dark:text-system-white hover:dark:bg-system-navy
-  border-system-white dark:border-system-navy;
+    hover:border-transparent;
 }

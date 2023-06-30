@@ -59,7 +59,10 @@ const Menu: React.FC<MenuProps> = () => {
     >
       {/* CLOSE BUTTON */}
       <motion.button
-        className={`${styles.CloseButton}`}
+        className={`${styles.CloseButton} text-system-white dark:text-system-navy
+        hover:text-system-navy hover:bg-system-white
+        hover:dark:text-system-white hover:dark:bg-system-navy
+      border-system-white dark:border-system-navy`}
         onClick={() => {
           dispatch(closeMenu());
         }}
