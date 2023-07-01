@@ -91,9 +91,7 @@ const Hero: React.FC<HeroProps> = () => {
         <div className="flex flex-col items-center h-full justify-evenly">
           <div className="flex flex-col justify-center w-full">
             <div className="flex items-center justify-center gap-2 text-sm font-semibold 2xs:text-xl xs:text-xl whitespace-nowrap sm:text-2xl xl:text-4xl">
-              Good {getTime().time}
-              {/* <Icon icon={getTime().iconCode} className={getTime().colorCode} /> */}
-              , <span className="">welcome to</span>
+              Good {getTime().time}, <span className="">welcome to</span>
             </div>
 
             <Logo className="w-full sm:w-[600px] md:w-[700px] lg:w-[1000px] mx-auto" />

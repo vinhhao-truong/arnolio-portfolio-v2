@@ -14,8 +14,8 @@ import { FaGithub as GithubIcon, FaShare as ShareIcon } from "react-icons/fa";
 import getUrl from "@/libs/utils/get/getUrl";
 import { TiWarning as WarningIcon } from "react-icons/ti";
 import { Tooltip } from "react-tooltip";
-import { useDispatch } from "react-redux";
-import { finishLoadingPart } from "@/redux/loadingSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { finishLoadingPart, selectLoading } from "@/redux/loadingSlice";
 
 interface ProjectsProps extends ReactProps {
   projects: any;
@@ -29,6 +29,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   });
 
   const dispatch = useDispatch();
+  const { isAllProjectsLoaded } = useSelector(selectLoading);
 
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const [numberImgLoaded, setNumberImgLoaded] = useState<number>(0);
@@ -36,10 +37,10 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   const MotionImage = motion(Image);
 
   useEffect(() => {
-    if (numberImgLoaded === projectsArr.length) {
+    if (numberImgLoaded >= projectsArr.length && !isAllProjectsLoaded) {
       dispatch(finishLoadingPart("isAllProjectsLoaded"));
     }
-  }, [numberImgLoaded]);
+  }, [numberImgLoaded, isAllProjectsLoaded]);
 
   return (
     <>
@@ -134,8 +135,11 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                       alt={`${p.name}`}
                       width={420}
                       height={250}
-                      onLoad={() => {
-                        setNumberImgLoaded((prev) => prev + 1);
+                      onLoadingComplete={() => {
+                        if (numberImgLoaded < projectsList.length) {
+                          console.log("p-loaded", idx);
+                          setNumberImgLoaded((prev) => prev + 1);
+                        }
                       }}
                       loading="eager"
                     />

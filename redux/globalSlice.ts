@@ -28,3 +28,4 @@ const globalSlice = createSlice({
 export default globalSlice;
 export const selectGlobal = (state: RootState) => state.global;
 export const { setMode } = globalSlice.actions;
+export const totalLoadingPart = Object.keys(initialState).length - 2;
