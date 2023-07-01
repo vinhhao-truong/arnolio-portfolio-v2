@@ -9,9 +9,6 @@ import styles from "./Menu.module.scss";
 import { MdOutlineClose } from "react-icons/md";
 import Nav from "@/interfaces/props/Nav";
 import Link from "next/link";
-import LogoDark from "@/components/common/Logo/LogoDark";
-import LogoLight from "@/components/common/Logo/LogoLight";
-import Logo from "@/components/common/Logo";
 
 const homeNavList: Nav[] = [
   { title: "about me", url: "/#about", isStayed: true },

@@ -12,6 +12,7 @@ import Menu from "./Menu";
 import Clock from "./Clock";
 import { useDispatch, useSelector } from "react-redux";
 import { setMode } from "@/redux/globalSlice";
+import DarkModeSwitch from "./DarkModeSwitch";
 
 const Navigation = () => {
   const dispatch = useDispatch();
@@ -24,21 +25,9 @@ const Navigation = () => {
           <Link href="/" scroll={false} className="w-[130px] md:w-[145px]">
             <Logo />
           </Link>
-          <div className="">
+          <div className="flex items-center gap-1 lg:flex-col">
             <Clock />
-            <button
-              onClick={() => {
-                if (document.documentElement.classList.contains("dark")) {
-                  dispatch(setMode("light"));
-                  document.documentElement.classList.remove("dark");
-                } else {
-                  dispatch(setMode("dark"));
-                  document.documentElement.classList.add("dark");
-                }
-              }}
-            >
-              toggle
-            </button>
+            <DarkModeSwitch />
           </div>
 
           <MenuButton />
