@@ -25,10 +25,8 @@ const DarkModeSwitch = () => {
   ) => {
     if (isDark) {
       dispatch(setMode("dark"));
-      document.documentElement.classList.add("dark");
     } else {
       dispatch(setMode("light"));
-      document.documentElement.classList.remove("dark");
     }
   };
 

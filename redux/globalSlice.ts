@@ -16,6 +16,11 @@ const globalSlice = createSlice({
   reducers: {
     setMode: (state, action: PayloadAction<"dark" | "light">) => {
       state.mode = action.payload;
+      if (action.payload === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
     },
   },
 });

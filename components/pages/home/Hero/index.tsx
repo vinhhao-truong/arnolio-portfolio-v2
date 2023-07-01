@@ -89,14 +89,14 @@ const Hero: React.FC<HeroProps> = () => {
     >
       <PageContainer className="items-center h-full text-system-navy dark:text-system-white">
         <div className="flex flex-col items-center h-full justify-evenly">
-          <div className="">
-            <div className="flex items-center gap-2 text-sm font-semibold xs:text-lg whitespace-nowrap sm:text-2xl xl:text-4xl">
-              Good {getTime().time}{" "}
-              <Icon icon={getTime().iconCode} className={getTime().colorCode} />
+          <div className="flex flex-col justify-center w-full">
+            <div className="flex items-center justify-center gap-2 text-sm font-semibold 2xs:text-xl xs:text-xl whitespace-nowrap sm:text-2xl xl:text-4xl">
+              Good {getTime().time}
+              {/* <Icon icon={getTime().iconCode} className={getTime().colorCode} /> */}
               , <span className="">welcome to</span>
             </div>
 
-            <Logo className="lg:w-[50vw] md:w-[70vw] w-full" />
+            <Logo className="w-full sm:w-[600px] md:w-[700px] lg:w-[1000px] mx-auto" />
           </div>
           <div className="flex flex-col gap-6">
             <motion.h2

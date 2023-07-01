@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="">
       <head>
         {/* light logo */}
         <link
@@ -75,6 +75,18 @@ export default function RootLayout({
           href="/arnolio-logo-dark/site.webmanifest"
           media="(prefers-color-scheme: dark)"
         />
+        {/* overscroll
+        <meta
+          name="theme-color"
+          content="#F9F9F9"
+          media="(prefers-color-scheme: light)"
+        />
+        <meta
+          name="theme-color"
+          content="#1F2B37"
+          media="(prefers-color-scheme: dark)"
+        /> */}
+        <meta id="overscroll-theme" name="theme-color" content="#F9F9F9" />
       </head>
       <body
         className={`${inter.className} bg-system-white dark:bg-system-navy text-system-navy dark:text-system-white`}

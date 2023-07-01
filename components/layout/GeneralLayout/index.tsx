@@ -20,6 +20,9 @@ const GeneralLayout: React.FC<ReactProps> = ({ children }) => {
   useEffect(() => {
     if (!!mode) {
       dispatch(loaded("isModeLoaded"));
+      document
+        .getElementById("overscroll-theme")
+        ?.setAttribute("content", mode === "dark" ? "#1F2B37" : "#F9F9F9");
     }
   }, [mode]);
 
