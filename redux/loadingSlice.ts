@@ -8,12 +8,14 @@ interface Loading {
   loadingPercentage: number;
   // isBgLoaded: boolean;
   isModeLoaded: boolean;
+  isAllProjectsLoaded: boolean;
 }
 const initialState: Loading = {
   isLoading: true,
   loadingPercentage: 0,
   // isBgLoaded: false,
   isModeLoaded: false,
+  isAllProjectsLoaded: false,
 };
 
 const loadingSlice = createSlice({

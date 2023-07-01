@@ -8,12 +8,14 @@ import ReactProps from "@/interfaces/ReactProps";
 import { motion } from "framer-motion";
 import moment, { Moment } from "moment";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Projects.module.scss";
 import { FaGithub as GithubIcon, FaShare as ShareIcon } from "react-icons/fa";
 import getUrl from "@/libs/utils/get/getUrl";
 import { TiWarning as WarningIcon } from "react-icons/ti";
 import { Tooltip } from "react-tooltip";
+import { useDispatch } from "react-redux";
+import { finishLoadingPart } from "@/redux/loadingSlice";
 
 interface ProjectsProps extends ReactProps {
   projects: any;
@@ -26,8 +28,18 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
     return timeA.diff(timeB) > 0 ? -1 : timeA.diff(timeB) < 0 ? 1 : 0;
   });
 
+  const dispatch = useDispatch();
+
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+  const [numberImgLoaded, setNumberImgLoaded] = useState<number>(0);
+
   const MotionImage = motion(Image);
+
+  useEffect(() => {
+    if (numberImgLoaded === projectsArr.length) {
+      dispatch(finishLoadingPart("isAllProjectsLoaded"));
+    }
+  }, [numberImgLoaded]);
 
   return (
     <>
@@ -52,9 +64,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                 >
                   {/* HEAD */}
                   <div
-                    className={`text-xl h-[20%] relative z-[1] flex justify-center gap-1 items-center w-full
-    bg-system-navy dark:bg-system-white select-none
-    border-b-2 border-system-white dark:border-system-navy`}
+                    className={`text-xl h-[20%] relative z-[1] flex justify-center gap-1 items-center w-full bg-system-navy dark:bg-system-white select-none border-b-2 border-system-white dark:border-system-navy`}
                   >
                     <h2 className={`font-semibold text-gradient-reverse`}>
                       {p.name}
@@ -124,6 +134,10 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                       alt={`${p.name}`}
                       width={420}
                       height={250}
+                      onLoad={() => {
+                        setNumberImgLoaded((prev) => prev + 1);
+                      }}
+                      loading="eager"
                     />
                   </div>
 
