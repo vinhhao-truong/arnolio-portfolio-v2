@@ -7,7 +7,7 @@ import Image from "next/image";
 import React from "react";
 import ReactProps from "@/interfaces/ReactProps";
 import Logo from "@/components/common/Logo";
-import styles from "./Footer.module.scss";
+import styles from "./ContactInfo.module.scss";
 import moment from "moment";
 import { useSelector } from "react-redux";
 import { selectGlobal } from "@/redux/globalSlice";
@@ -20,7 +20,7 @@ interface ContactUrlProps extends ReactProps {
 }
 const ContactUrl: React.FC<ContactUrlProps> = ({ href, icon, content }) => {
   return (
-    <a href={href} className="flex items-center gap-1 hover:underline w-max">
+    <a href={href} className="flex items-center gap-1.5 hover:underline w-max">
       <Image src={icon} alt={`img-${href}`} width={24} height={24} />
       {content}
     </a>
@@ -49,16 +49,25 @@ const contactList: ContactUrlProps[] = [
   },
 ];
 
-const Footer = () => {
+const ContactInfo = () => {
   const mode = useSelector(selectGlobal).mode;
 
   return (
-    <footer className={`${styles.Background}`}>
-      <p className="px-2 text-sm italic text-right">
-        © Arnolio {moment().format("YYYY")}
-      </p>
-    </footer>
+    <div className="">
+      <div className="">
+        <Logo className="w-[400px] max-w-[80%]" />
+        <ul className="grid text-[8px] 2xs:text-[10px] text-sm gap-x-8 gap-y-4 xs:text-base">
+          {contactList.map((contact, idx) => {
+            return (
+              <li className="" key={`contact-url-${idx}`}>
+                <ContactUrl {...contact} />
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </div>
   );
 };
 
-export default Footer;
+export default ContactInfo;
