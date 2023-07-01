@@ -37,7 +37,7 @@ const MenuIcon: React.FC<MenuIconProps> = ({
       <motion.rect
         animate={
           isHovered
-            ? { fill: hoveredColor, x: -2 }
+            ? { fill: hoveredColor, x: -4 }
             : isDarkMode
             ? { fill: "#F9F9F9" }
             : { fill: "#1F2B37" }
@@ -50,7 +50,7 @@ const MenuIcon: React.FC<MenuIconProps> = ({
       <motion.rect
         animate={
           isHovered
-            ? { fill: hoveredColor, x: -2 }
+            ? { fill: hoveredColor, x: -6 }
             : isDarkMode
             ? { fill: "#F9F9F9" }
             : { fill: "#1F2B37" }

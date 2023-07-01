@@ -40,7 +40,7 @@ const Menu: React.FC<MenuProps> = () => {
 
   useEffect(() => {
     if (isMenuOpen) {
-      const escape = document.addEventListener("keydown", escFn);
+      document.addEventListener("keydown", escFn);
 
       return () => removeEventListener("keydown", escFn, false);
     }
@@ -48,65 +48,81 @@ const Menu: React.FC<MenuProps> = () => {
 
   return (
     <motion.div
-      initial={{ display: "none", opacity: 0 }}
+      // initial={{ opacity: 0 }}
       animate={
         isMenuOpen
-          ? { opacity: 1, display: "block" }
-          : { display: "none", opacity: 0 }
+          ? { display: "block" }
+          : {
+              display: "none",
+              transition: {
+                delay: 0.4,
+              },
+            }
       }
-      transition={{ duration: 0.3, ease: "easeIn" }}
-      className={` bg-gradient-120 from-system-white/50 from-[20%] to-system-navy to-[30%] dark:from-system-navy/50 dark:to-system-white fixed z-50 w-screen h-screen`}
+      className=""
     >
-      {/* CLOSE BUTTON */}
-      <motion.button
-        className={`${styles.CloseButton} text-system-white dark:text-system-navy
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={
+          isMenuOpen
+            ? { opacity: 1 }
+            : { opacity: 0, transition: { duration: 0.4 } }
+          // { opacity: 1 }
+        }
+        // transition={{ duration: 1, ease: "easeIn" }}
+        className={` bg-gradient-120 from-system-white/50 from-[20%] to-system-navy to-[30%] dark:from-system-navy/50 dark:to-system-white fixed z-50 w-screen h-screen`}
+      >
+        {/* CLOSE BUTTON */}
+        <motion.button
+          className={`${styles.CloseButton} text-system-white dark:text-system-navy
         hover:text-system-navy hover:bg-system-white
         hover:dark:text-system-white hover:dark:bg-system-navy
       border-system-white dark:border-system-navy`}
-        onClick={() => {
-          dispatch(closeMenu());
-        }}
-      >
-        <MdOutlineClose className="text-2xl " />
-      </motion.button>
-      <nav className="flex flex-col items-end justify-center w-full h-full gap-8 pr-2 lg:pr-4 list-none max-w-[1440px]">
-        {homeNavList.map(({ title, url, isStayed }, idx) => {
-          return (
-            <motion.li
-              initial={{
-                x: 30 * (idx + 1),
-              }}
-              whileInView={
-                isMenuOpen
-                  ? {
-                      x: 0,
-                      transition: {
-                        delay: 0.15,
-                        ease: "easeIn",
-                        duration: 0.3,
-                      },
-                    }
-                  : { x: 30 * (idx + 1) }
-              }
-              whileHover={{
-                scale: 1.1,
-              }}
-              key={`menu-${idx}`}
-              className="text-2xl text-system-white dark:text-system-navy"
-            >
-              <Link
-                href={url}
-                scroll={!isStayed}
-                onClick={() => {
-                  dispatch(closeMenu());
+          onClick={() => {
+            dispatch(closeMenu());
+          }}
+        >
+          <MdOutlineClose className="text-2xl " />
+        </motion.button>
+        <nav className="flex flex-col items-end justify-center w-full h-full gap-8 pr-2 lg:pr-4 list-none max-w-[1440px]">
+          {homeNavList.map(({ title, url, isStayed }, idx) => {
+            return (
+              <motion.li
+                initial={{
+                  x: 30 * (idx + 1),
                 }}
+                whileInView={
+                  isMenuOpen
+                    ? {
+                        x: 0,
+                        transition: {
+                          delay: 0.15,
+                          ease: "easeIn",
+                          duration: 0.3,
+                        },
+                      }
+                    : { x: 30 * (idx + 1) }
+                }
+                whileHover={{
+                  scale: 1.1,
+                }}
+                key={`menu-${idx}`}
+                className="text-2xl text-system-white dark:text-system-navy"
               >
-                {title}
-              </Link>
-            </motion.li>
-          );
-        })}
-      </nav>
+                <Link
+                  href={url}
+                  scroll={!isStayed}
+                  onClick={() => {
+                    dispatch(closeMenu());
+                  }}
+                >
+                  {title}
+                </Link>
+              </motion.li>
+            );
+          })}
+        </nav>
+      </motion.div>
     </motion.div>
   );
 };

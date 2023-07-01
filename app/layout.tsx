@@ -13,11 +13,6 @@ export const metadata: Metadata = {
   title: "Arnolio",
   description:
     "Arnold Truong's portfolio, showcasing profile, experiences and projects.",
-  openGraph: {
-    title: "Arnolio",
-    description:
-      "Arnold Truong's portfolio, showcasing profile, experiences and projects.",
-  },
 };
 
 export default function RootLayout({
