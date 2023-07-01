@@ -67,7 +67,9 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                   </div>
                   <div className={`${styles.ProjectBody}`}>
                     {/* MASK */}
-                    <motion.div
+                    <motion.a
+                      href={getUrl(p.demoUrl || "")}
+                      target="_blank"
                       style={
                         isHovered
                           ? {
@@ -110,7 +112,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                       >
                         {p.description}
                       </motion.p>
-                    </motion.div>
+                    </motion.a>
                     <MotionImage
                       className="relative object-cover w-full h-full"
                       initial={{ scale: 1.25 }}

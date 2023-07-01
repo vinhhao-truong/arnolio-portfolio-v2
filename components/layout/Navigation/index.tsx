@@ -25,7 +25,7 @@ const Navigation = () => {
           <Link href="/" scroll={false} className="w-[130px] md:w-[145px]">
             <Logo />
           </Link>
-          <div className="flex items-center gap-1 lg:flex-col">
+          <div className="flex items-center gap-1 lg:gap-2">
             <Clock />
             <DarkModeSwitch />
           </div>

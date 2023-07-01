@@ -34,9 +34,9 @@ const DarkModeSwitch = () => {
     <Switch
       checked={isDarkMode}
       onChange={onSwitchChange}
-      height={15}
-      width={40}
-      handleDiameter={25}
+      height={12}
+      width={35}
+      handleDiameter={22}
       checkedIcon={<></>}
       checkedHandleIcon={
         <div className="flex items-center justify-center w-full h-full border-2 rounded-full border-system-white">
