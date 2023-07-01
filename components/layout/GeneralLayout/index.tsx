@@ -1,7 +1,11 @@
 "use client";
 
 import ReactProps from "@/interfaces/ReactProps";
-import { loaded, selectLoading, stopLoading } from "@/redux/loadingSlice";
+import {
+  finishLoadingPart,
+  selectLoading,
+  stopLoading,
+} from "@/redux/loadingSlice";
 import React, { useLayoutEffect, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import InitialLoadingScreen from "../InitialLoadingScreen";
@@ -19,18 +23,12 @@ const GeneralLayout: React.FC<ReactProps> = ({ children }) => {
 
   useEffect(() => {
     if (!!mode) {
-      dispatch(loaded("isModeLoaded"));
+      dispatch(finishLoadingPart("isModeLoaded"));
       document
         .getElementById("overscroll-theme")
         ?.setAttribute("content", mode === "dark" ? "#1F2B37" : "#F9F9F9");
     }
   }, [mode]);
-
-  useEffect(() => {
-    if (loading.isModeLoaded) {
-      dispatch(stopLoading());
-    }
-  }, [loading]);
 
   // useEffect(() => {
   //   if (!loading.isLoading) {

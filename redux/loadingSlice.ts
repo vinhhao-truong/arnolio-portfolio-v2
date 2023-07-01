@@ -5,12 +5,14 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface Loading {
   isLoading: boolean;
-  isBgLoaded: boolean;
+  loadingPercentage: number;
+  // isBgLoaded: boolean;
   isModeLoaded: boolean;
 }
 const initialState: Loading = {
   isLoading: true,
-  isBgLoaded: false,
+  loadingPercentage: 0,
+  // isBgLoaded: false,
   isModeLoaded: false,
 };
 
@@ -22,12 +24,21 @@ const loadingSlice = createSlice({
       document.querySelector("body")?.classList?.remove("overflow-hidden");
       state.isLoading = false;
     },
-    loaded: (state, action: PayloadAction<keyof Loading>) => {
-      state[action.payload] = true;
+
+    finishLoadingPart: (state, action: PayloadAction<keyof Loading>) => {
+      if (
+        action.payload !== "loadingPercentage" &&
+        state[action.payload] === false
+      ) {
+        const totalLoading = Object.keys(initialState).length - 2;
+
+        state.loadingPercentage += 1 / totalLoading;
+        state[action.payload] = true;
+      }
     },
   },
 });
 
 export default loadingSlice;
 export const selectLoading = (state: RootState) => state.loading;
-export const { loaded, stopLoading } = loadingSlice.actions;
+export const { finishLoadingPart, stopLoading } = loadingSlice.actions;

@@ -53,7 +53,7 @@ const DarkModeSwitch = () => {
       onColor="#e5e5e5"
       onHandleColor="#525252"
       offHandleColor="#93c5fd"
-      activeBoxShadow="0px 0px 1px 2px #F9F9F9"
+      // activeBoxShadow="0px 0px 1px 2px #F9F9F9"
     />
   );
 };

@@ -1,14 +1,37 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { useSelector } from "react-redux";
-import { selectLoading } from "@/redux/loadingSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { selectLoading, stopLoading } from "@/redux/loadingSlice";
 import styles from "./InitialLoadingScreen.module.scss";
 
 const InitialLoadingScreen = () => {
   const loading = useSelector(selectLoading);
   const isLoading = loading.isLoading;
+  const loadingPercentage = loading.loadingPercentage;
+
+  const dispatch = useDispatch();
+
+  const [counter, setCounter] = useState<number>(0);
+
+  useEffect(() => {
+    if (loadingPercentage > counter && counter < 1) {
+      const countUp = setInterval(() => {
+        setCounter((prev) => {
+          return prev + 0.01;
+        });
+      }, 10);
+
+      return () => clearInterval(countUp);
+    }
+  }, [loadingPercentage, counter]);
+
+  useEffect(() => {
+    if (counter >= 1) {
+      dispatch(stopLoading());
+    }
+  }, [counter]);
 
   return (
     <motion.div
@@ -38,7 +61,7 @@ const InitialLoadingScreen = () => {
         className={`${styles.Background} fixed top-0 w-screen h-screen z-[100]`}
       >
         <p className="absolute font-semibold lg:text-7xl bottom-4 right-4">
-          {isLoading ? "counter" : "ok"}
+          {Math.round(counter * 100)}%
         </p>
       </motion.div>
     </motion.div>
