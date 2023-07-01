@@ -45,29 +45,29 @@ const InitialLoadingScreen = () => {
 
   return (
     <motion.div
-      // animate={
-      //   !isLoading
-      //     ? {
-      //         display: "none",
-      //         transition: { delay: 1.5 },
-      //       }
-      //     : {}
-      // }
+      animate={
+        !isLoading
+          ? {
+              display: "none",
+              transition: { delay: 1.5 },
+            }
+          : {}
+      }
       className=""
     >
       <motion.div
-        // initial={{ opacity: 1 }}
-        // animate={
-        //   isLoading
-        //     ? { opacity: 1 }
-        //     : {
-        //         opacity: 0,
-        //         transition: {
-        //           duration: 1,
-        //           delay: 0.5,
-        //         },
-        //       }
-        // }
+        initial={{ opacity: 1 }}
+        animate={
+          isLoading
+            ? { opacity: 1 }
+            : {
+                opacity: 0,
+                transition: {
+                  duration: 1,
+                  delay: 0.5,
+                },
+              }
+        }
         className={`${styles.Background} flex items-center justify-center fixed top-0 w-screen h-screen z-[100]`}
       >
         <Image
