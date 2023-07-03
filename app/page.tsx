@@ -5,10 +5,11 @@ import Projects from "@/components/pages/home/Projects";
 import axios from "axios";
 
 async function getProjects() {
-  const projectsRes = await axios.get(
-    "https://arnolio-default-rtdb.asia-southeast1.firebasedatabase.app/project.json"
+  const projectsRes = await fetch(
+    "https://arnolio-default-rtdb.asia-southeast1.firebasedatabase.app/project.json",
+    { next: { revalidate: 1 } }
   );
-  return projectsRes.data;
+  return projectsRes.json();
 }
 
 export default async function Home() {
