@@ -53,10 +53,10 @@ const Input = (props) => {
           htmlFor={props.id}
           className={`${
             isEmail ? "h-full" : "h-[calc(100%-6px)]"
-          } w-10 absolute flex-none top-0 bottom-0 left-0 flex items-center justify-center   rounded-l-md  ${
+          } w-10 absolute flex-none top-0 bottom-0 left-0 flex items-center justify-center rounded-l-md  ${
             !props.valid && isEmail && !!props.value
               ? "bg-red-600 text-system-white"
-              : "dark:bg-green-600 bg-system-blue text-system-white dark:text-system-navy"
+              : "bg-green-600 dark:bg-system-blue text-system-white"
           }`}
         >
           {isEmail ? <>@</> : <MsgIcon className="text-xl" />}
@@ -120,49 +120,54 @@ const ContactForm = () => {
   return (
     <form
       onSubmit={sendMsg}
-      className="flex flex-col w-full gap-2 sm:w-2/3 lg:w-full"
+      className="flex flex-col items-center gap-2 lg:flex-row"
     >
-      {/* @ts-ignore */}
-      {Object.keys(inputs).map((inputKey: keyof InputsInterface, idx) => {
-        return (
-          <div
-            key={`contact-form-${idx}`}
-            className={`${
-              inputKey === "email" && !isEmailValid && inputs.email.length > 0
-                ? "focus-within:text-red-500 text-red-500"
-                : inputKey === "email" &&
-                  isEmailValid &&
-                  inputs.email.length > 0
-                ? "focus-within:text-system-blue dark:focus-within:text-emerald-500 text-system-blue dark:text-emerald-500"
-                : "focus-within:text-system-navy dark:focus-within:text-system-white"
-            } flex flex-col`}
-          >
-            <Input
+      <div className="flex flex-col w-full gap-2 sm:w-2/3 lg:w-full">
+        {/* @ts-ignore */}
+        {Object.keys(inputs).map((inputKey: keyof InputsInterface, idx) => {
+          return (
+            <div
+              key={`contact-form-${idx}`}
               className={`${
                 inputKey === "email" && !isEmailValid && inputs.email.length > 0
-                  ? "border-red-500 focus:border-red-500"
+                  ? "focus-within:text-red-500 text-red-500"
                   : inputKey === "email" &&
                     isEmailValid &&
                     inputs.email.length > 0
-                  ? "border-system-blue focus:border-system-blue"
-                  : (inputKey === "email" && !inputs.email) ||
-                    (inputKey === "msg" && !inputs.msg)
-                  ? "border-gray-300 focus:border-system-blue"
-                  : "focus:border-system-blue border-system-blue dark:text-emerald-600"
-              } p-2 pl-12 outline-0 bg-system-white border-2 rounded-md dark:border-transparent
+                  ? "dark:focus-within:text-system-blue focus-within:text-emerald-500 dark:text-system-blue text-emerald-500"
+                  : "dark:focus-within:text-system-navy focus-within:text-system-white"
+              } flex flex-col`}
+            >
+              <Input
+                className={`${
+                  inputKey === "email" &&
+                  !isEmailValid &&
+                  inputs.email.length > 0
+                    ? "border-red-500 focus:border-red-500"
+                    : inputKey === "email" &&
+                      isEmailValid &&
+                      inputs.email.length > 0
+                    ? "border-emerald-600 focus:border-emerald-600 dark:border-system-blue dark:focus:border-system-blue"
+                    : (inputKey === "email" && !inputs.email) ||
+                      (inputKey === "msg" && !inputs.msg)
+                    ? "dark:border-gray-300 dark:focus:border-system-blue"
+                    : "dark:focus:border-system-blue dark:border-system-blue text-system-navy"
+                } p-2 pl-12 outline-0 bg-system-white dark:border-2 rounded-md
           placeholder:text-gray-400 focus:placeholder:text-transparent placeholder:italic
-            selection:bg-system-blue w-full`}
-              value={inputs[inputKey]}
-              onChange={onInputChange(inputKey)}
-              name={inputKey}
-              input={inputKey}
-              id={`contact-${inputKey}`}
-              valid={isEmailValid}
-              required
-            />
-          </div>
-        );
-      })}
+            w-full`}
+                value={inputs[inputKey]}
+                onChange={onInputChange(inputKey)}
+                name={inputKey}
+                input={inputKey}
+                id={`contact-${inputKey}`}
+                valid={isEmailValid}
+                required
+              />
+            </div>
+          );
+        })}
+      </div>
+
       <motion.button
         whileTap={status === "waiting" ? { scale: 0.95 } : {}}
         disabled={

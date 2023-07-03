@@ -10,31 +10,29 @@ html {
 @tailwind utilities;
 
 html {
-  @media (prefers-color-scheme: dark) {
+  /* Light theme styles go here */
+  ::-moz-selection {
+    /* Code for Firefox */
+    color: $system-white;
+    background: $system-navy;
+  }
+
+  ::selection {
+    color: $system-white;
+    background: $system-navy;
+  }
+
+  &.dark {
     /* Dark theme styles go here */
     ::-moz-selection {
       /* Code for Firefox */
-      color: $system-navy;
-      background: $system-white;
+      color: $system-navy !important;
+      background: $system-white !important;
     }
 
     ::selection {
-      color: $system-navy;
-      background: $system-white;
-    }
-  }
-
-  @media (prefers-color-scheme: light) {
-    /* Light theme styles go here */
-    ::-moz-selection {
-      /* Code for Firefox */
-      color: $system-white;
-      background: $system-navy;
-    }
-
-    ::selection {
-      color: $system-white;
-      background: $system-navy;
+      color: $system-navy !important;
+      background: $system-white !important;
     }
   }
 }

@@ -2,5 +2,5 @@
 
 .Clock {
   font-family: "Roboto Mono", monospace !important;
-  @apply text-sm sm:text-base lg:text-xl;
+  @apply text-sm sm:text-base lg:text-xl hidden xs:block;
 }

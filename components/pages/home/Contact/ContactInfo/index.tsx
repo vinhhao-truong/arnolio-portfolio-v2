@@ -55,8 +55,8 @@ const ContactInfo = () => {
   return (
     <div className="">
       <div className="">
-        <Logo className="w-[400px] max-w-[80%]" />
-        <ul className="grid text-[8px] 2xs:text-[10px] text-sm gap-x-8 gap-y-4 xs:text-base">
+        <Logo className="w-[200px] 2xs:w-[300px] sm:w-[400px] max-w-[80%]" />
+        <ul className="grid gap-y-4">
           {contactList.map((contact, idx) => {
             return (
               <li className="" key={`contact-url-${idx}`}>
