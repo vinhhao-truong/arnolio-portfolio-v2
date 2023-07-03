@@ -4,10 +4,15 @@ import Hero from "@/components/pages/home/Hero";
 import Projects from "@/components/pages/home/Projects";
 import axios from "axios";
 
-export default async function Home() {
+async function getProjects() {
   const projectsRes = await axios.get(
     "https://arnolio-default-rtdb.asia-southeast1.firebasedatabase.app/project.json"
   );
+  return projectsRes.data;
+}
+
+export default async function Home() {
+  const projects = await getProjects();
 
   return (
     <div className="mb-16">
@@ -16,7 +21,7 @@ export default async function Home() {
       </div>
 
       <About />
-      <Projects projects={projectsRes.data} />
+      <Projects projects={projects} />
       <Contact />
     </div>
   );
