@@ -209,8 +209,8 @@ const ContactForm = () => {
             <Image
               src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif"
               alt="contact-loading-img"
-              width={48}
-              height={48}
+              width={20}
+              height={20}
             />
           )}
           <motion.div className="text-2xl text-system-white">

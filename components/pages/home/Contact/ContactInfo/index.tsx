@@ -40,12 +40,12 @@ const contactList: ContactUrlProps[] = [
   {
     href: "https://www.linkedin.com/in/arnold-truong-501102200/",
     icon: "https://cdn-icons-png.flaticon.com/512/174/174857.png",
-    content: "LinkedIn",
+    content: "https://www.linkedin.com/in/arnold-truong-501102200/",
   },
   {
     href: "https://github.com/vinhhao-truong",
     icon: "https://cdn-icons-png.flaticon.com/512/25/25231.png",
-    content: "Github",
+    content: "https://github.com/vinhhao-truong",
   },
 ];
 
