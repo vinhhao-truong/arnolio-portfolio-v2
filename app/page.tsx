@@ -4,7 +4,7 @@ import Hero from "@/components/pages/home/Hero";
 import Projects from "@/components/pages/home/Projects";
 import axios from "axios";
 
-export const revalidate = 60;
+export const revalidate = 30;
 
 async function getProjects() {
   const projectsRes = await fetch(
