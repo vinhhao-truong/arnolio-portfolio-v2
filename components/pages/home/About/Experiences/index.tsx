@@ -86,7 +86,7 @@ const Experiences = () => {
 
   return (
     <div ref={expRef} className="relative">
-      <FloatInSection className="relative overflow-x-hidden overflow-y-auto">
+      <FloatInSection className="relative overflow-x-hidden overflow-y-hidden">
         {/* CLOUDS */}
         <NoSSR>
           {Array(6)
