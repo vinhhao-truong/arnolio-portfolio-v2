@@ -4,10 +4,11 @@ import Hero from "@/components/pages/home/Hero";
 import Projects from "@/components/pages/home/Projects";
 import axios from "axios";
 
+export const revalidate = 60;
+
 async function getProjects() {
   const projectsRes = await fetch(
-    "https://arnolio-default-rtdb.asia-southeast1.firebasedatabase.app/project.json",
-    { next: { revalidate: 1 } }
+    "https://arnolio-default-rtdb.asia-southeast1.firebasedatabase.app/project.json"
   );
   return projectsRes.json();
 }
