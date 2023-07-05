@@ -77,7 +77,7 @@ const InitialLoadingScreen = () => {
           height={500}
           className="max-w-[80vw] select-none"
         />
-        <p className="absolute font-semibold lg:text-7xl bottom-4 right-4">
+        <p className="absolute text-2xl font-semibold lg:text-7xl bottom-4 right-4">
           {Math.round(counter * 100)}%
         </p>
       </motion.div>
