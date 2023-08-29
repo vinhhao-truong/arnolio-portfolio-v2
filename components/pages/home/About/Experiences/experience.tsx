@@ -36,7 +36,7 @@ interface Exp {
 const experiences: Exp[] = [
   {
     from: moment("2022-03"),
-    to: moment("2022-03"),
+    to: moment("2022-05"),
     position: "Software Developer (Volunteering)",
     organisation: "Comms Declare",
     orgLogo:
