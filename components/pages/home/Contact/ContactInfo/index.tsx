@@ -20,7 +20,11 @@ interface ContactUrlProps extends ReactProps {
 }
 const ContactUrl: React.FC<ContactUrlProps> = ({ href, icon, content }) => {
   return (
-    <a href={href} className="flex items-center gap-1.5 hover:underline">
+    <a
+      target="_blank"
+      href={href}
+      className="flex items-center gap-1.5 hover:underline"
+    >
       <Image src={icon} alt={`img-${href}`} width={24} height={24} />
       {content}
     </a>
