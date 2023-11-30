@@ -38,6 +38,11 @@ const contactList: ContactUrlProps[] = [
     content: "(+61) 434 109 621",
   },
   {
+    href: "tel:+84796368029",
+    icon: "https://cdn.iconscout.com/icon/free/png-256/free-apple-phone-2-493154.png?f=webp",
+    content: "(+84) 796 368 029",
+  },
+  {
     href: "https://www.linkedin.com/in/arnold-truong-501102200/",
     icon: "https://cdn-icons-png.flaticon.com/512/174/174857.png",
     content: "https://www.linkedin.com/in/arnold-truong-501102200/",
