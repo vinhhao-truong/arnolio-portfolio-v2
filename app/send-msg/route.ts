@@ -34,9 +34,13 @@ export const POST = async (
                   Email: process.env.PERSONAL_EMAIL,
                 },
               ],
-              Subject: `Request from Arnolio by ${email}`,
+              Subject: `Arnolio Contact ${email}`,
               TextPart: message,
-              HTMLPart: `<div>${message}</div>`,
+              HTMLPart: `
+              <h2 style="color: #4F76F6">Contact request from email: ${email}</h2>
+              <br />
+              <p style="white-space: pre-wrap">${message}</p>
+              `,
             },
           ],
         });

@@ -39,7 +39,6 @@ const Input = (props) => {
             input={undefined}
             valid={undefined}
             placeholder="Enter your email here..."
-            disabled
           />
         ) : (
           <textarea
@@ -50,7 +49,6 @@ const Input = (props) => {
             input={undefined}
             placeholder="Enter your message here..."
             valid={undefined}
-            disabled
           />
         )}
         <label
@@ -173,35 +171,34 @@ const ContactForm = () => {
       </div>
 
       <motion.button
-        // whileTap={status === "waiting" ? { scale: 0.95 } : {}}
-        disabled
-        // disabled={
-        //   status === "sending" || status === "success" || status === "error"
-        // }
-        // animate={
-        //   status === "waiting"
-        //     ? {
-        //         backgroundImage:
-        //           "linear-gradient(90deg, #4f76f6 0%, #77f2a1 100%)",
-        //       }
-        //     : status === "success"
-        //     ? { backgroundColor: "#10b981", backgroundImage: "unset" }
-        //     : status === "error"
-        //     ? { backgroundColor: "#dc2626", backgroundImage: "unset" }
-        //     : { backgroundColor: "#d4d4d4", backgroundImage: "unset" }
-        // }
-        // whileHover={
-        //   status === "waiting"
-        //     ? {
-        //         backgroundImage:
-        //           "linear-gradient(115deg, #4f76f6 0%, #77f2a1 100%)",
-        //       }
-        //     : {}
-        // }
+        whileTap={status === "waiting" ? { scale: 0.95 } : {}}
+        disabled={
+          status === "sending" || status === "success" || status === "error"
+        }
+        animate={
+          status === "waiting"
+            ? {
+                backgroundImage:
+                  "linear-gradient(90deg, #4f76f6 0%, #77f2a1 100%)",
+              }
+            : status === "success"
+            ? { backgroundColor: "#10b981", backgroundImage: "unset" }
+            : status === "error"
+            ? { backgroundColor: "#dc2626", backgroundImage: "unset" }
+            : { backgroundColor: "#d4d4d4", backgroundImage: "unset" }
+        }
+        whileHover={
+          status === "waiting"
+            ? {
+                backgroundImage:
+                  "linear-gradient(115deg, #4f76f6 0%, #77f2a1 100%)",
+              }
+            : {}
+        }
         className="block mx-auto rounded-full disabled:bg-gray-300"
       >
         <motion.div
-          // whileHover={status === "waiting" ? { x: [-1, 2] } : {}}
+          whileHover={status === "waiting" ? { x: [-1, 2] } : {}}
           className="flex items-center justify-center w-8 h-8"
         >
           {status === "waiting" && (

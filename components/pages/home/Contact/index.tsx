@@ -25,7 +25,7 @@ const Contact = () => {
           </div>
           <div className="order-1 col-span-2 p-4 bg-system-navy dark:bg-system-white lg:order-3">
             <h2 className="mb-3 text-4xl font-semibold sm:text-center lg:text-left text-system-white dark:text-system-blue">
-              Contact Me (UNAVAILABLE)
+              Contact Me
             </h2>
             <ContactForm />
           </div>
