@@ -20,6 +20,8 @@ const techImages: string[] = [
   "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/MongoDB_Logo.svg/2560px-MongoDB_Logo.svg.png",
   "https://miro.medium.com/v2/resize:fit:1220/0*epnKnkKuLx2RAajt",
   "https://pro.guslyon.fr/static/material-ui-4a66e3fd52c7ec9469f4684b68aca251.png",
+  "https://1000logos.net/wp-content/uploads/2021/05/GitHub-logo.png",
+  "https://1000logos.net/wp-content/uploads/2021/11/Docker-Logo.png",
 ];
 
 const Technologies = () => {
