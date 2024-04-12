@@ -1,7 +1,6 @@
 "use client";
 
-import FloatInSection from "@/components/common/FloatInSection";
-import PageContainer from "@/components/layout/PageContainer";
+import styles from "./ContactForm.module.scss";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
@@ -141,7 +140,7 @@ const ContactForm = () => {
               } flex flex-col`}
             >
               <Input
-                className={`${
+                className={`caret-system-navy ${styles.Input} ${
                   inputKey === "email" &&
                   !isEmailValid &&
                   inputs.email.length > 0
@@ -154,9 +153,7 @@ const ContactForm = () => {
                       (inputKey === "msg" && !inputs.msg)
                     ? "dark:border-gray-300 dark:focus:border-system-blue"
                     : "dark:focus:border-system-blue dark:border-system-blue text-system-navy"
-                } p-2 pl-12 outline-0 bg-system-white dark:border-2 rounded-md
-          placeholder:text-gray-400 focus:placeholder:text-transparent placeholder:italic
-            w-full`}
+                } p-2 pl-12 outline-0 bg-system-white dark:border-2 rounded-md placeholder:text-gray-400 w-full`}
                 value={inputs[inputKey]}
                 onChange={onInputChange(inputKey)}
                 name={inputKey}

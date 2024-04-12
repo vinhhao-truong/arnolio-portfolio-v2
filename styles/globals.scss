@@ -79,3 +79,31 @@ body {
     text-fill-color: transparent;
   }
 }
+
+.dark-light-reverse {
+  /* Light theme styles go here */
+  ::-moz-selection {
+    /* Code for Firefox */
+    color: $system-navy;
+    background: $system-white !important;
+  }
+
+  ::selection {
+    color: $system-navy;
+    background: $system-white !important;
+  }
+
+  &.dark {
+    /* Dark theme styles go here */
+    ::-moz-selection {
+      /* Code for Firefox */
+      background: $system-navy !important;
+      color: $system-white !important;
+    }
+
+    ::selection {
+      background: $system-navy !important;
+      color: $system-white !important;
+    }
+  }
+}
