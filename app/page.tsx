@@ -7,6 +7,8 @@ import axios from "axios";
 export const revalidate = 30;
 
 async function getProjects() {
+  console.log("test", process.env.TEST);
+
   const projectsRes = await fetch(
     "https://arnolio-default-rtdb.asia-southeast1.firebasedatabase.app/project.json"
   );

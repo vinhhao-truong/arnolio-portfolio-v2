@@ -14,7 +14,7 @@ const ImageLoading = () => {
     <div className="flex items-center justify-center w-full h-full">
       <Iconify
         icon="eos-icons:bubble-loading"
-        className="text-5xl text-system-blue"
+        className={`text-5xl text-system-blue dark:text-system-green`}
       />
     </div>
   );
@@ -104,6 +104,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ p }) => {
             loading="eager"
           />
         </Suspense>
+        {/* <ImageLoading /> */}
       </div>
 
       {/* FOOT */}

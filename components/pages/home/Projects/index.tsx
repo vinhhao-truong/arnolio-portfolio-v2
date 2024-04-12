@@ -8,10 +8,8 @@ import ReactProps from "@/interfaces/ReactProps";
 import { motion } from "framer-motion";
 import moment, { Moment } from "moment";
 import React, { useEffect, useState } from "react";
-
-import { useDispatch, useSelector } from "react-redux";
-import { finishLoadingPart, selectLoading } from "@/redux/loadingSlice";
 import ProjectCard from "./ProjectCard";
+import { Icon as Iconify } from "@iconify/react";
 
 interface ProjectsProps extends ReactProps {
   projects: any;
@@ -23,8 +21,6 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
     const timeB: Moment = moment(b?.lastUpdate);
     return timeA.diff(timeB) > 0 ? -1 : timeA.diff(timeB) < 0 ? 1 : 0;
   });
-
-  const dispatch = useDispatch();
   const initialNumber = 6;
   const [showFull, setShowFull] = useState<boolean>(false);
 
@@ -44,9 +40,11 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
             <motion.a
               whileHover={{ y: 2 }}
               onClick={() => setShowFull(true)}
-              className="flex flex-col items-center underline cursor-pointer text-system-blue dark:text-system-green"
+              className="flex flex-col items-center underline cursor-pointer"
             >
-              Show more
+              <div className="flex items-center justify-center w-10 h-10 rounded-full shadow-md shadow-system-green dark:shadow-system-blue">
+                <Iconify icon="charm:chevrons-down" className="text-xl" />
+              </div>
             </motion.a>
           )}
         </FloatInSection>
