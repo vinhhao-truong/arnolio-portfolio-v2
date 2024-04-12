@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { selectLoading, stopLoading } from "@/redux/loadingSlice";
@@ -16,6 +16,10 @@ const InitialLoadingScreen = () => {
   const dispatch = useDispatch();
 
   const [counter, setCounter] = useState<number>(0);
+
+  const renderedCounter = useMemo(() => {
+    return Math.round(counter * 100);
+  }, [counter]);
 
   useEffect(() => {
     if (loadingPercentage > counter && counter < 1) {
@@ -78,7 +82,7 @@ const InitialLoadingScreen = () => {
           className="max-w-[80vw] select-none"
         />
         <p className="absolute text-2xl font-semibold lg:text-7xl bottom-4 right-4">
-          {Math.round(counter * 100)}%
+          {renderedCounter}%
         </p>
       </motion.div>
     </motion.div>

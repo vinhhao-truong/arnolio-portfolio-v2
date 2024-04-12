@@ -1,12 +1,20 @@
 "use client";
 
 import moment, { Moment } from "moment";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import styles from "./Clock.module.scss";
 
 const Clock = () => {
   const [time, setTime] = useState<Moment>(moment());
+
+  const renderedHr = useMemo(() => {
+    return time.format("HH");
+  }, [time]);
+
+  const renderedMin = useMemo(() => {
+    return time.format("mm");
+  }, [time]);
 
   useEffect(() => {
     const count = setInterval(() => {
@@ -18,7 +26,7 @@ const Clock = () => {
 
   return (
     <p className={`${styles.Clock}`}>
-      {time.format("HH")}
+      {renderedHr}
       <motion.span
         animate={{
           transition: {
@@ -32,7 +40,7 @@ const Clock = () => {
       >
         :
       </motion.span>
-      {time.format("mm")}
+      {renderedMin}
     </p>
   );
 };

@@ -3,8 +3,7 @@
 import FloatInSection from "@/components/common/FloatInSection";
 import PageContainer from "@/components/layout/PageContainer";
 import Image from "next/image";
-import React, { useState } from "react";
-import styles from "./Technologies.module.scss";
+import React from "react";
 
 const techImages: string[] = [
   "https://www.freepnglogos.com/uploads/html5-logo-png/html5-logo-devextreme-multi-purpose-controls-html-javascript-3.png",

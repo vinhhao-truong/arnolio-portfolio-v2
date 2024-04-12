@@ -1,7 +1,7 @@
 "use client";
 
 import { selectGlobal } from "@/redux/globalSlice";
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setMode } from "@/redux/globalSlice";
 
