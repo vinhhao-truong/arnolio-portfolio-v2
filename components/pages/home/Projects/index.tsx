@@ -140,7 +140,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                         alt={`${p.name}`}
                         width={420}
                         height={250}
-                        onLoadingComplete={() => {
+                        onLoad={() => {
                           if (numberImgLoaded < projectsList.length) {
                             console.log("p-loaded", idx);
                             setNumberImgLoaded((prev) => prev + 1);

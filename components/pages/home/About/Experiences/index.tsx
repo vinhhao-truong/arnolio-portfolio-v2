@@ -124,6 +124,7 @@ const Experiences = () => {
             alt="move"
             width={200}
             height={100}
+            unoptimized
           />
         </motion.div>
 
