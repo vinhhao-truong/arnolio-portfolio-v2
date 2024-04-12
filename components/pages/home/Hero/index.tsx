@@ -59,7 +59,6 @@ const ExploreMore = () => {
   return (
     <MotionLink
       href="/#about"
-      scroll={false}
       shallow
       className="flex flex-col items-center justify-center"
       initial={{ rotate: 90 }}

@@ -11,9 +11,9 @@ import Nav from "@/interfaces/props/Nav";
 import Link from "next/link";
 
 const homeNavList: Nav[] = [
-  { title: "about me", url: "/#about", isStayed: true },
-  { title: "all my projects", url: "/#projects", isStayed: true },
-  { title: "get in touch", url: "/#contact", isStayed: true },
+  { title: "about me", url: "/#about", isStayed: false },
+  { title: "all my projects", url: "/#projects", isStayed: false },
+  { title: "get in touch", url: "/#contact", isStayed: false },
 ];
 
 interface MenuProps extends ReactProps {}
