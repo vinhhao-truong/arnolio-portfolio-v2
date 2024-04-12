@@ -2,12 +2,12 @@ import About from "@/components/pages/home/About";
 import Contact from "@/components/pages/home/Contact";
 import Hero from "@/components/pages/home/Hero";
 import Projects from "@/components/pages/home/Projects";
-import axios from "axios";
 
 export const revalidate = 30;
 
 async function getProjects() {
   console.log("test", process.env.TEST);
+  console.log("pub test", process.env.NEXT_PUBLIC_TEST);
 
   const projectsRes = await fetch(
     "https://arnolio-default-rtdb.asia-southeast1.firebasedatabase.app/project.json"
