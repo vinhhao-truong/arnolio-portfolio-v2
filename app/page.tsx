@@ -6,9 +6,6 @@ import Projects from "@/components/pages/home/Projects";
 export const revalidate = 30;
 
 async function getProjects() {
-  console.log("test", process.env.TEST);
-  console.log("pub test", process.env.NEXT_PUBLIC_TEST);
-
   const projectsRes = await fetch(
     "https://arnolio-default-rtdb.asia-southeast1.firebasedatabase.app/project.json"
   );
