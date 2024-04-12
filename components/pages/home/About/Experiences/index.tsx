@@ -82,7 +82,6 @@ const Experiences = () => {
   const scrollPercentage = useTransform(scrollYProgress, (value) => {
     return `${value * 70}%`;
   });
-  const scrollDeg = useTransform(scrollYProgress, [0, 1], [0, 360]);
 
   return (
     <div ref={expRef} className="relative">
@@ -137,6 +136,7 @@ const Experiences = () => {
             alt="move"
             width={200}
             height={100}
+            unoptimized
           />
         </motion.div>
         <h2 className="mb-4 text-3xl font-semibold text-center">

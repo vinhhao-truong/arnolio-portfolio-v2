@@ -17,6 +17,10 @@ interface ProjectsProps extends ReactProps {
 const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   const projectsArr: Project[] = Object.values(projects);
   const projectList: Project[] = projectsArr.sort((a, b) => {
+    if (a.isPinned) {
+      return -2;
+    }
+
     const timeA: Moment = moment(a?.lastUpdate);
     const timeB: Moment = moment(b?.lastUpdate);
     return timeA.diff(timeB) > 0 ? -1 : timeA.diff(timeB) < 0 ? 1 : 0;
@@ -42,7 +46,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
               onClick={() => setShowFull(true)}
               className="flex flex-col items-center underline cursor-pointer"
             >
-              <div className="flex items-center justify-center w-10 h-10 rounded-full shadow-md shadow-system-green dark:shadow-system-blue">
+              <div className="flex items-center justify-center w-10 h-10 rounded-full shadow-md shadow-system-blue dark:shadow-system-green">
                 <Iconify icon="charm:chevrons-down" className="text-xl" />
               </div>
             </motion.a>

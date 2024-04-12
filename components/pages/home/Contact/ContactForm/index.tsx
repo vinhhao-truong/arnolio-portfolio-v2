@@ -210,6 +210,7 @@ const ContactForm = () => {
               alt="contact-loading-img"
               width={20}
               height={20}
+              unoptimized
             />
           )}
           <motion.div className="text-2xl text-system-white">

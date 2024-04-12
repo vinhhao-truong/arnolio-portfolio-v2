@@ -1,13 +1,23 @@
 import ReactProps from "@/interfaces/ReactProps";
+import { selectGlobal } from "@/redux/globalSlice";
 import moment, { Moment } from "moment";
+import { useMemo } from "react";
+import { useSelector } from "react-redux";
 
 interface ExpDescProps extends ReactProps {
   orgDesc: string;
   tasks?: string[];
 }
 const ExpDesc: React.FC<ExpDescProps> = ({ orgDesc, tasks }) => {
+  const { mode } = useSelector(selectGlobal);
+  const isDarkMode = useMemo(() => mode === "dark", [mode]);
+
   return (
-    <div className="z-[1] relative text-left px-4 py-2">
+    <div
+      className={`z-[1] relative text-left px-4 py-2 ${
+        isDarkMode ? "dark-light-reverse" : ""
+      }`}
+    >
       <p className="text-slate-500">{orgDesc}</p>
       <ul className="list-disc">
         {tasks &&
