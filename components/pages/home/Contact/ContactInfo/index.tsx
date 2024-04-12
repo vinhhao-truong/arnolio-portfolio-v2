@@ -47,9 +47,9 @@ const contactList: ContactUrlProps[] = [
     content: "(+84) 796 368 029",
   },
   {
-    href: "https://www.linkedin.com/in/arnold-truong-501102200/",
+    href: "https://www.linkedin.com/in/vinh-hao-truong-501102200/",
     icon: "https://cdn-icons-png.flaticon.com/512/174/174857.png",
-    content: "https://www.linkedin.com/in/arnold-truong-501102200/",
+    content: "https://www.linkedin.com/in/vinh-hao-truong-501102200/",
   },
   {
     href: "https://github.com/vinhhao-truong",
