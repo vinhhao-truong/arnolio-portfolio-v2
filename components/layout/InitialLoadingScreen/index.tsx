@@ -21,6 +21,7 @@ const InitialLoadingScreen = () => {
     return Math.round(counter * 100);
   }, [counter]);
 
+  //counter
   useEffect(() => {
     if (loadingPercentage > counter && counter < 1) {
       const countUp = setInterval(() => {

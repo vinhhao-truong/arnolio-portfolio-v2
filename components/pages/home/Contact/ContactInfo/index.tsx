@@ -1,13 +1,9 @@
 "use client";
 
-import FloatInSection from "@/components/common/FloatInSection";
-import SectionHeader from "@/components/common/SectionHeader";
-import PageContainer from "@/components/layout/PageContainer";
 import Image from "next/image";
 import React from "react";
 import ReactProps from "@/interfaces/ReactProps";
 import Logo from "@/components/common/Logo";
-import styles from "./ContactInfo.module.scss";
 import moment from "moment";
 import { useSelector } from "react-redux";
 import { selectGlobal } from "@/redux/globalSlice";
