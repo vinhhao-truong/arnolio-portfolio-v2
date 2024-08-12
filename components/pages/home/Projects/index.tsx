@@ -17,7 +17,14 @@ interface ProjectsProps extends ReactProps {
 const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   const projectsArr: Project[] = Object.values(projects);
 
-  const pinnedProjects: Project[] = projectsArr.filter((p) => p.isPinned);
+  const pinnedProjects: Project[] = projectsArr
+    .filter((p) => p.isPinned)
+    .sort((a, b) => {
+      const timeA: Moment = moment(a?.lastUpdate);
+      const timeB: Moment = moment(b?.lastUpdate);
+
+      return timeA.diff(timeB) > 0 ? -1 : timeA.diff(timeB) < 0 ? 1 : 0;
+    });
   const unpinnedProjects: Project[] = projectsArr
     .filter((p) => !p.isPinned)
     .sort((a, b) => {
