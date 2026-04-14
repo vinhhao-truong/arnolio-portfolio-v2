@@ -34,9 +34,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ p }) => {
   const isPinned = p.isPinned;
 
   const MotionImage = motion(Image);
-
-  console.log(p.name, p.isPinned);
-
   return (
     <li className="relative">
       {isPinned && (

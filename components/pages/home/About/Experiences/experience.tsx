@@ -50,7 +50,7 @@ const experiences: Exp[] = [
     position: "Software Developer (Volunteering)",
     organisation: "Comms Declare",
     orgLogo:
-      "https://media.licdn.com/dms/image/C560BAQHRFBSHjmcgxg/company-logo_200_200/0/1584167853396?e=2147483647&v=beta&t=-r8cQuG6mX6Toy0piZkLow9jN2fJP4esMfkGaopQ9v8",
+      "https://jttmyzderuwrcaixsmjh.supabase.co/storage/v1/object/public/arnolio/exp-comp-logos/comms-declare-blue-logo-with-padding-scaled.png",
     orgUrl: "https://commsdeclare.org/",
     desc: (
       <ExpDesc
@@ -68,7 +68,7 @@ const experiences: Exp[] = [
     position: "Software Developer (Volunteering)",
     organisation: "JDS",
     orgLogo:
-      "https://media.cdn.gradconnection.com/uploads/f56781a3-2c6a-4628-9465-415de6c31dc6-JDS_Logo.png",
+      "https://jttmyzderuwrcaixsmjh.supabase.co/storage/v1/object/public/arnolio/exp-comp-logos/f56781a3-2c6a-4628-9465-415de6c31dc6-JDS_Logo.png",
     orgUrl: "https://www.jds.net.au/",
     desc: (
       <ExpDesc
@@ -86,7 +86,7 @@ const experiences: Exp[] = [
     position: "Software Developer",
     organisation: "Maqro Capital",
     orgLogo:
-      "https://media.licdn.com/dms/image/C560BAQHTEt1PEzBAGg/company-logo_200_200/0/1636081323883?e=2147483647&v=beta&t=8yqZ_kx4qvRMOFTidYI-W3HVV2h6S5p7phlX7mY6WNo",
+      "https://jttmyzderuwrcaixsmjh.supabase.co/storage/v1/object/public/arnolio/exp-comp-logos/maqrocapital_logo.jpg",
     orgUrl: "https://maqro.com.au/",
     desc: (
       <ExpDesc
@@ -106,8 +106,8 @@ const experiences: Exp[] = [
     position: "Software Developer (Volunteer)",
     organisation: "Khang Phúc Incorporated",
     orgLogo:
-      "https://media.licdn.com/dms/image/C560BAQHTEt1PEzBAGg/company-logo_200_200/0/1636081323883?e=2147483647&v=beta&t=8yqZ_kx4qvRMOFTidYI-W3HVV2h6S5p7phlX7mY6WNo",
-    orgUrl: "https://maqro.com.au/",
+      "https://jttmyzderuwrcaixsmjh.supabase.co/storage/v1/object/public/arnolio/exp-comp-logos/KP-full-logo.webp",
+    orgUrl: "https://www.rehaumiennam.vn/",
     desc: (
       <ExpDesc
         tasks={[
@@ -124,8 +124,8 @@ const experiences: Exp[] = [
     position: "Developer",
     organisation: "The Aquarium Professional Services",
     orgLogo:
-      "https://media.licdn.com/dms/image/C560BAQHTEt1PEzBAGg/company-logo_200_200/0/1636081323883?e=2147483647&v=beta&t=8yqZ_kx4qvRMOFTidYI-W3HVV2h6S5p7phlX7mY6WNo",
-    orgUrl: "https://maqro.com.au/",
+      "https://jttmyzderuwrcaixsmjh.supabase.co/storage/v1/object/public/arnolio/exp-comp-logos/677c9ad6373e47fd71379bd3_The%20Aquarium-StackedMain_Colour.png",
+    orgUrl: "https://www.theaquarium.com.au/",
     desc: (
       <ExpDesc
         tasks={[

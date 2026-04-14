@@ -22,7 +22,7 @@ export default async function Home() {
       </div>
 
       <About />
-      <Projects projects={projects} />
+      <Projects />
       <Contact />
     </div>
   );

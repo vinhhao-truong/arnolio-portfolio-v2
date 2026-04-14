@@ -220,7 +220,7 @@ const Experiences = () => {
                                 alt="logo"
                                 width={32}
                                 height={32}
-                                className=""
+                                className="bg-white"
                               />
                             )}
                             <p>@ {organisation}</p>

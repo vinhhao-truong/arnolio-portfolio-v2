@@ -10,14 +10,10 @@ import moment, { Moment } from "moment";
 import React, { useEffect, useState } from "react";
 import ProjectCard from "./ProjectCard";
 import { Icon as Iconify } from "@iconify/react";
+import projects from "@/assets/project";
 
-interface ProjectsProps extends ReactProps {
-  projects: any;
-}
-const Projects: React.FC<ProjectsProps> = ({ projects }) => {
-  const projectsArr: Project[] = Object.values(projects);
-
-  const pinnedProjects: Project[] = projectsArr
+const Projects: React.FC<{}> = ({}) => {
+  const pinnedProjects: Project[] = projects
     .filter((p) => p.isPinned)
     .sort((a, b) => {
       const timeA: Moment = moment(a?.lastUpdate);
@@ -25,7 +21,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
 
       return timeA.diff(timeB) > 0 ? -1 : timeA.diff(timeB) < 0 ? 1 : 0;
     });
-  const unpinnedProjects: Project[] = projectsArr
+  const unpinnedProjects: Project[] = projects
     .filter((p) => !p.isPinned)
     .sort((a, b) => {
       const timeA: Moment = moment(a?.lastUpdate);

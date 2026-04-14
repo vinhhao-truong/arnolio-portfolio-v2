@@ -11,12 +11,12 @@ const Profile: React.FC<ReactProps> = () => {
     <FloatInSection className="flex flex-col items-center gap-6 lg:flex-row lg:justify-center lg:gap-20 lg:items-start">
       <Image
         src={
-          "https://firebasestorage.googleapis.com/v0/b/arnolio.appspot.com/o/arnolio-avatar.webp?alt=media&token=41ec6de0-4c2f-4c18-882f-51e7b3e1dc1a"
+          "https://jttmyzderuwrcaixsmjh.supabase.co/storage/v1/object/public/arnolio/72c08f25-2d43-4a94-9756-8a1dc8942b9f%201.png"
         }
         height={280}
         width={280}
         alt={"profile-img"}
-        className="rounded-full shadow-lg h-auto shadow-system-navy dark:shadow-system-white max-w-[30vw] sm:max-w-[40vw]"
+        className="rounded-full shadow-lg h-auto shadow-system-navy dark:shadow-system-white max-w-[30vw] sm:max-w-[40vw] aspect-square object-cover"
       />
       <section className="flex flex-col items-center leading-loose lg:w-1/2">
         <h2 className={`text-gradient text-4xl font-bold text-center`}>
