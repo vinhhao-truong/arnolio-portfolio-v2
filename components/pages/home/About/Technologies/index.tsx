@@ -5,22 +5,47 @@ import PageContainer from "@/components/layout/PageContainer";
 import Image from "next/image";
 import React from "react";
 
-const techImages: string[] = [
-  "https://www.freepnglogos.com/uploads/html5-logo-png/html5-logo-devextreme-multi-purpose-controls-html-javascript-3.png",
-  "https://blog.marksauerutley.com/static/d0050d0772fd9db5ec35f7b69a66b609/6af66/tslogo.png",
-  "https://logos-download.com/wp-content/uploads/2016/09/React_logo_wordmark.png",
-  "https://upload.wikimedia.org/wikipedia/commons/3/30/Redux_Logo.png",
-  "https://raw.githubusercontent.com/rtk-incubator/rtk-query/main/logo.png",
-  "https://seeklogo.com/images/N/next-js-logo-7929BCD36F-seeklogo.com.png",
-  "https://seeklogo.com/images/T/tailwind-css-logo-89E99D7181-seeklogo.com.png",
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/2560px-Sass_Logo_Color.svg.png",
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/2560px-Node.js_logo.svg.png",
-  "https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png",
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/MongoDB_Logo.svg/2560px-MongoDB_Logo.svg.png",
-  "https://miro.medium.com/v2/resize:fit:1220/0*epnKnkKuLx2RAajt",
-  "https://pro.guslyon.fr/static/material-ui-4a66e3fd52c7ec9469f4684b68aca251.png",
-  "https://1000logos.net/wp-content/uploads/2021/05/GitHub-logo.png",
-  "https://1000logos.net/wp-content/uploads/2021/11/Docker-Logo.png",
+const techImages: { url: string; title: string }[] = [
+  {
+    url: "https://jttmyzderuwrcaixsmjh.supabase.co/storage/v1/object/public/arnolio/tech-stacks/16071c26-9ef1-4596-af11-d41d313fd733.png",
+    title: "HTML - CSS - SASS",
+  },
+  {
+    url: "https://jttmyzderuwrcaixsmjh.supabase.co/storage/v1/object/public/arnolio/tech-stacks/5ad2057e-3d97-4f9f-9609-fa377c0f976a.png",
+    title: "JavaScript - TypeScript",
+  },
+  {
+    url: "https://jttmyzderuwrcaixsmjh.supabase.co/storage/v1/object/public/arnolio/tech-stacks/9ffeed02-f87e-4bd4-997e-0f70a4e2a7ca.png",
+    title: "NodeJS - ExpressJS",
+  },
+  {
+    url: "https://jttmyzderuwrcaixsmjh.supabase.co/storage/v1/object/public/arnolio/tech-stacks/44ae581d-b776-4416-b0f4-7d0d19e1696c.png",
+    title: "ReactJS - NextJS",
+  },
+  {
+    url: "https://jttmyzderuwrcaixsmjh.supabase.co/storage/v1/object/public/arnolio/tech-stacks/6de8a4d3-0ae9-4a29-bc4d-a8fd6863fada.png",
+    title: "ReduxJS",
+  },
+  {
+    url: "https://jttmyzderuwrcaixsmjh.supabase.co/storage/v1/object/public/arnolio/tech-stacks/f9e9fa4f-6a77-4d1a-a622-aedc57ad6ba1.png",
+    title: "Python",
+  },
+  {
+    url: "https://jttmyzderuwrcaixsmjh.supabase.co/storage/v1/object/public/arnolio/tech-stacks/e8318afd-6da1-4dd4-84af-e5dc7b3b62d4.png",
+    title: "Bootstrap - TailwindCSS",
+  },
+  {
+    url: "https://jttmyzderuwrcaixsmjh.supabase.co/storage/v1/object/public/arnolio/tech-stacks/b535a788-e280-4abd-9d07-8dfe7e25050c.png",
+    title: "Mendix (Low-code development tool)",
+  },
+  {
+    url: "https://jttmyzderuwrcaixsmjh.supabase.co/storage/v1/object/public/arnolio/tech-stacks/004c6dd2-e2de-4606-a383-fe829c7105e0.png",
+    title: "Postgres - MongoDB",
+  },
+  {
+    url: "https://jttmyzderuwrcaixsmjh.supabase.co/storage/v1/object/public/arnolio/tech-stacks/1b7e51d7-b44c-4873-a35b-7c3a6d2b1756.png",
+    title: "GitHub - Docker",
+  },
 ];
 
 const Technologies = () => {
@@ -30,16 +55,20 @@ const Technologies = () => {
         <h2 className="mb-4 text-3xl font-semibold text-center">
           My tech stack includes:
         </h2>
-        <ul className="flex flex-wrap items-center justify-center gap-12 p-4 dark:bg-system-white">
-          {techImages.map((url, idx) => {
+        <ul className="flex flex-wrap justify-center gap-12 p-4">
+          {techImages.map((img, idx) => {
             return (
-              <li className="" key={`tech-${idx}`}>
+              <li
+                className="relative border-4 dark:bg-white bg-system-navy"
+                key={`tech-${idx}`}
+              >
                 <Image
-                  src={url}
+                  src={img.url}
                   alt={`tech-img-${idx}`}
-                  className="object-fill h-auto"
-                  width={128}
-                  height={64}
+                  className="object-contain aspect-square"
+                  width={156}
+                  height={156}
+                  title={img.title}
                 />
               </li>
             );

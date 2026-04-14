@@ -35,40 +35,49 @@ const TimelineNode: React.FC<TimelineNodeProps> = ({ isDone, from, to }) => {
     return (
       <div className="flex items-center gap-1">
         {date && <CalendarIcon />}
-        <p className="text-xl">{date ? date.format("MMM' YYYY") : "~"}</p>
+        <p className="text-xl">
+          {date ? date.format("MMM' YYYY") : "~someday~"}
+        </p>
       </div>
     );
   };
 
   return (
-    <div className="flex justify-center gap-8 mb-1">
-      <Date date={from} />
-      <div
-        className={`${
-          isDone
-            ? "bg-gray-600 dark:bg-gray-400"
-            : "bg-system-blue dark:bg-system-green"
-        } w-8 h-8 rounded-full z-[1] relative`}
-      >
-        {to && (
-          <RightIcon
-            className="absolute top-1/2 left-full"
-            style={{ transform: "translateY(-50%)" }}
-          />
-        )}
-        {isDone ? (
-          <DoneCircle
-            className="absolute text-4xl text-system-white dark:text-system-navy top-1/2 left-1/2"
-            style={{ transform: "translate(-50%,-50%)" }}
-          />
-        ) : (
-          <UpIconCircle
-            className="absolute text-3xl text-system-white dark:text-system-navy top-1/2 left-1/2"
-            style={{ transform: "translate(-50%,-50%)" }}
-          />
-        )}
+    <div className="grid grid-cols-3 gap-8 mb-1 min-w-[200px]">
+      <div className="flex justify-end">
+        <Date date={from} />
       </div>
-      <Date date={to} />
+
+      <div className="flex justify-center">
+        <div
+          className={`${
+            isDone
+              ? "bg-gray-600 dark:bg-gray-400"
+              : "bg-system-blue dark:bg-system-green"
+          } w-8 h-8 rounded-full z-[1] relative `}
+        >
+          {to && (
+            <RightIcon
+              className="absolute top-1/2 left-full"
+              style={{ transform: "translateY(-50%)" }}
+            />
+          )}
+          {isDone ? (
+            <DoneCircle
+              className="absolute text-4xl text-system-white dark:text-system-navy top-1/2 left-1/2"
+              style={{ transform: "translate(-50%,-50%)" }}
+            />
+          ) : (
+            <UpIconCircle
+              className="absolute text-3xl text-system-white dark:text-system-navy top-1/2 left-1/2"
+              style={{ transform: "translate(-50%,-50%)" }}
+            />
+          )}
+        </div>
+      </div>
+      <div className="flex justify-start">
+        <Date date={to} />
+      </div>
     </div>
   );
 };
@@ -180,7 +189,7 @@ const Experiences = () => {
                           isDone
                             ? "bg-system-navy/70 dark:bg-system-white/70"
                             : idx === switchPos
-                            ? `bg-gradient-to-b from-[50%] from-system-blue to-[50%] to-system-navy/70 dark:from-system-green dark:to-system-white/70`
+                            ? `bg-gradient-to-b from-[50%] from-system-blue to-[50%] to-system-blue dark:from-system-green dark:to-system-green`
                             : "bg-system-blue dark:bg-system-green"
                         } absolute top-0 w-[4px] h-full left-1/2 `}
                         style={{ transform: "translateX(-50%)" }}

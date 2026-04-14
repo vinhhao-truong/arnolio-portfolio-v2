@@ -20,18 +20,20 @@ const Profile: React.FC<ReactProps> = () => {
       />
       <section className="flex flex-col items-center leading-loose lg:w-1/2">
         <h2 className={`text-gradient text-4xl font-bold text-center`}>
-          Arnold Truong
+          Vinh Hao (Arnold) Truong
         </h2>
-        <h3 className="mb-4 text-2xl text-center">Web developer</h3>
+        <h3 className="mb-4 text-2xl text-center">Software Engineer</h3>
         <p className="leading-normal">
-          Experienced software engineer with proven ability to learn, self-start
-          and collaborate in rapidly changing environments. Equipped with a
-          record of success in delivering responsive and high-quality web app
-          that adapts business requirements by planning, designing, building and
-          testing with following agile methodology. Proficient in applying most
-          recent technology such as NextJS and TailwindCSS to implement new
-          features based on requirements under strict deadlines. Eager to learn
-          and challenge myself for better development skills.
+          Software Developer with 1+ year of commercial experience and 3+ years
+          of hands-on experience delivering scalable and maintainable
+          applications using Mendix, React, and Next.js. Experienced in domain
+          modelling, REST/SOAP API integration, and developing custom frontend
+          components to support business requirements. Proven ability to work in
+          Agile/SCRUM environments, collaborating with cross-functional
+          stakeholders to deliver high-quality solutions across multiple
+          projects. Demonstrated impact in improving system performance,
+          streamlining data workflows, and building production-ready features
+          that enhance user experience and business operations.
         </p>
       </section>
     </FloatInSection>

@@ -100,6 +100,45 @@ const experiences: Exp[] = [
       />
     ),
   },
+  {
+    from: moment("2023-05"),
+    // to: moment("2025-06"),
+    position: "Software Developer (Volunteer)",
+    organisation: "Khang Phúc Incorporated",
+    orgLogo:
+      "https://media.licdn.com/dms/image/C560BAQHTEt1PEzBAGg/company-logo_200_200/0/1636081323883?e=2147483647&v=beta&t=8yqZ_kx4qvRMOFTidYI-W3HVV2h6S5p7phlX7mY6WNo",
+    orgUrl: "https://maqro.com.au/",
+    desc: (
+      <ExpDesc
+        tasks={[
+          "Designed and deployed a scalable headless CMS using Strapi, migrating legacy data to improve maintainability and streamline content workflows by 30%.",
+          "Built a high-performance e-commerce platform with Next.js and collaborated across teams to integrate APIs, ensuring reliable end-to-end data flow.",
+        ]}
+        orgDesc="An wholesale plumbing products provider located in Vietnam."
+      />
+    ),
+  },
+  {
+    from: moment("2025-06"),
+    to: moment("2026-04"),
+    position: "Developer",
+    organisation: "The Aquarium Professional Services",
+    orgLogo:
+      "https://media.licdn.com/dms/image/C560BAQHTEt1PEzBAGg/company-logo_200_200/0/1636081323883?e=2147483647&v=beta&t=8yqZ_kx4qvRMOFTidYI-W3HVV2h6S5p7phlX7mY6WNo",
+    orgUrl: "https://maqro.com.au/",
+    desc: (
+      <ExpDesc
+        tasks={[
+          "Delivered enterprise-scale Mendix applications, applying clean architecture and governance standards to ensure scalability, maintainability, and reduced production defects in business-critical environments.",
+          "Led the design and optimization of domain models and application architecture, improving development efficiency and enabling faster, more predictable delivery across releases.",
+          "Built custom React-based components to extend platform capabilities and integrated enterprise systems via REST/SOAP APIs, improving user workflows and data consistency across services.",
+          "Supported UAT and production releases, working closely with stakeholders to ensure smooth deployments, minimal downtime, and high system availability.",
+          "Applied performance tuning, monitoring, and security best practices, improving system responsiveness, ensuring production stability, and maintaining compliance with enterprise data governance standards.",
+        ]}
+        orgDesc="As a fin-tech company, Maqro provides a variety of financial services to investors, such as stock recommendations, trading strategies, advisory services, etc."
+      />
+    ),
+  },
 ];
 
 export default experiences;

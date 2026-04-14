@@ -120,7 +120,7 @@ const Hero: React.FC<HeroProps> = () => {
               className="ml-5 font-semibold 2xs:ml-16 xs:ml-24 sm:ml-32 sm:text-xl lg:text-3xl"
             >
               I am a {"<"}
-              <u className="">full-stack web developer</u>
+              <u className="">software engineer</u>
               {" />"},
             </motion.h2>
             <motion.h2
