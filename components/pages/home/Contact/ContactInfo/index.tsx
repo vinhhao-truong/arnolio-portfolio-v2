@@ -28,9 +28,9 @@ const ContactUrl: React.FC<ContactUrlProps> = ({ href, icon, content }) => {
 };
 const contactList: ContactUrlProps[] = [
   {
-    href: "mailto:arnold.truong@arnolio.dev",
+    href: "mailto:vinhhao.truong@arnolio.dev",
     icon: "https://privacyaustralia.net/wp-content/uploads/2019/02/email-icon-vector.png",
-    content: "arnold.truong@arnolio.dev",
+    content: "vinhhao.truong@arnolio.dev",
   },
   {
     href: "tel:+61434109621",
